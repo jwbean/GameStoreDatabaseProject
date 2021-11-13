@@ -12,7 +12,7 @@ namespace GameStoreDatabaseProject.Models
         public string DeveloperName { get; set; }
         public string GenreName { get; set; }
         public int Price { get; set; }
-        public DateTimeOffset ReleasedDate { get; set; }
+        public DateTimeOffset ReleaseDate { get; set; }
         public bool IsRemoved { get; set; }
 
     }

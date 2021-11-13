@@ -10,11 +10,19 @@ namespace GameStoreDatabaseProject
 {
     public class GameAccess
     {
-        public List<Models.Game> GetGames(string gameName)
+        public List<Models.Game> GetGame(string gameName)
         {
             using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(Connection.CnnVal("Database")))
             {
                 var output = connection.Query<Models.Game>("dbo.RetrieveGame @GameName", new { GameName = gameName }).ToList();
+                return output;
+            }
+        }
+        public List<Models.Game> AllGames()
+        {
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(Connection.CnnVal("Database")))
+            {
+                var output = connection.Query<Models.Game>("dbo.RetrieveGames").ToList();
                 return output;
             }
         }
@@ -23,7 +31,7 @@ namespace GameStoreDatabaseProject
             using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(Connection.CnnVal("Database")))
             {
                 List<Models.Game> game = new List<Models.Game>();
-                game.Add(new Models.Game { GameName = gameName, DeveloperName = developerName, GenreName = genre, Price = price, ReleasedDate = DateTimeOffset.Now, IsRemoved = true });
+                game.Add(new Models.Game { GameName = gameName, DeveloperName = developerName, GenreName = genre, Price = price, ReleaseDate = DateTimeOffset.Now, IsRemoved = true });
                 connection.Execute("dbo.CreateGame @GameName, @DeveloperName, @GenreName, @Price, @ReleasedDate, @IsRemoved", game);
 
             }

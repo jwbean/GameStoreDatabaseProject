@@ -9,11 +9,19 @@ namespace GameStoreDatabaseProject
 {
     public class UserAccess
     {
-        public List<Models.User> GetUsers(string userName)
+        public List<Models.User> GetUser(string userName)
         {
             using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(Connection.CnnVal("Database")))
             {
                 var output = connection.Query<Models.User>("dbo.RetrieveUser @UserName", new { UserName = userName }).ToList();
+                return output;
+            }
+        }
+        public List<Models.User> AllUsers()
+        {
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(Connection.CnnVal("Database")))
+            {
+                var output = connection.Query<Models.User>("dbo.RetrieveUsers").ToList();
                 return output;
             }
         }

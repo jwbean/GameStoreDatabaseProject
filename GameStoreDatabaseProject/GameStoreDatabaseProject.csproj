@@ -58,6 +58,7 @@
     </Compile>
     <Compile Include="Connection.cs" />
     <Compile Include="GameAccess.cs" />
+    <Compile Include="LibraryAccess.cs" />
     <Compile Include="Models\Developer.cs" />
     <Compile Include="Models\Game.cs" />
     <Compile Include="Models\Genre.cs" />
