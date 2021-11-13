@@ -50,6 +50,18 @@
             this.label10 = new System.Windows.Forms.Label();
             this.LibraryBox = new System.Windows.Forms.ListBox();
             this.Buy_Button = new System.Windows.Forms.Button();
+            this.GenreBox = new System.Windows.Forms.ComboBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.LessThanFive = new System.Windows.Forms.CheckBox();
+            this.High2Low = new System.Windows.Forms.CheckBox();
+            this.Low2High = new System.Windows.Forms.CheckBox();
+            this.label14 = new System.Windows.Forms.Label();
+            this.DeveloperList = new System.Windows.Forms.ComboBox();
+            this.GameNameSearch = new System.Windows.Forms.TextBox();
+            this.label15 = new System.Windows.Forms.Label();
+            this.Name_Search = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.RatingTrackBar)).BeginInit();
             this.SuspendLayout();
             // 
@@ -272,11 +284,145 @@
             this.Buy_Button.UseVisualStyleBackColor = true;
             this.Buy_Button.Click += new System.EventHandler(this.Buy_Button_Click);
             // 
+            // GenreBox
+            // 
+            this.GenreBox.FormattingEnabled = true;
+            this.GenreBox.Location = new System.Drawing.Point(403, 400);
+            this.GenreBox.Margin = new System.Windows.Forms.Padding(4);
+            this.GenreBox.Name = "GenreBox";
+            this.GenreBox.Size = new System.Drawing.Size(160, 24);
+            this.GenreBox.TabIndex = 22;
+            this.GenreBox.SelectedIndexChanged += new System.EventHandler(this.GenreBox_SelectedIndexChanged);
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Location = new System.Drawing.Point(315, 360);
+            this.label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(63, 21);
+            this.label11.TabIndex = 23;
+            this.label11.Text = "Filter:";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(326, 400);
+            this.label12.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(52, 17);
+            this.label12.TabIndex = 24;
+            this.label12.Text = "Genre:";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(310, 451);
+            this.label13.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(0, 21);
+            this.label13.TabIndex = 25;
+            // 
+            // LessThanFive
+            // 
+            this.LessThanFive.AutoSize = true;
+            this.LessThanFive.Location = new System.Drawing.Point(403, 463);
+            this.LessThanFive.Name = "LessThanFive";
+            this.LessThanFive.Size = new System.Drawing.Size(46, 21);
+            this.LessThanFive.TabIndex = 26;
+            this.LessThanFive.Text = "5<";
+            this.LessThanFive.UseVisualStyleBackColor = true;
+            this.LessThanFive.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
+            // 
+            // High2Low
+            // 
+            this.High2Low.AutoSize = true;
+            this.High2Low.Location = new System.Drawing.Point(403, 490);
+            this.High2Low.Name = "High2Low";
+            this.High2Low.Size = new System.Drawing.Size(101, 21);
+            this.High2Low.TabIndex = 27;
+            this.High2Low.Text = "HighToLow";
+            this.High2Low.UseVisualStyleBackColor = true;
+            this.High2Low.CheckedChanged += new System.EventHandler(this.High2Low_CheckedChanged);
+            // 
+            // Low2High
+            // 
+            this.Low2High.AutoSize = true;
+            this.Low2High.Location = new System.Drawing.Point(403, 517);
+            this.Low2High.Name = "Low2High";
+            this.Low2High.Size = new System.Drawing.Size(101, 21);
+            this.Low2High.TabIndex = 28;
+            this.Low2High.Text = "LowToHigh";
+            this.Low2High.UseVisualStyleBackColor = true;
+            this.Low2High.CheckedChanged += new System.EventHandler(this.Low2High_CheckedChanged);
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(304, 432);
+            this.label14.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(96, 21);
+            this.label14.TabIndex = 30;
+            this.label14.Text = "Developer:";
+            // 
+            // DeveloperList
+            // 
+            this.DeveloperList.FormattingEnabled = true;
+            this.DeveloperList.Location = new System.Drawing.Point(403, 429);
+            this.DeveloperList.Margin = new System.Windows.Forms.Padding(4);
+            this.DeveloperList.Name = "DeveloperList";
+            this.DeveloperList.Size = new System.Drawing.Size(160, 24);
+            this.DeveloperList.TabIndex = 29;
+            this.DeveloperList.SelectedIndexChanged += new System.EventHandler(this.DeveloperList_SelectedIndexChanged);
+            // 
+            // GameNameSearch
+            // 
+            this.GameNameSearch.Location = new System.Drawing.Point(403, 553);
+            this.GameNameSearch.Margin = new System.Windows.Forms.Padding(4);
+            this.GameNameSearch.Multiline = true;
+            this.GameNameSearch.Name = "GameNameSearch";
+            this.GameNameSearch.Size = new System.Drawing.Size(160, 24);
+            this.GameNameSearch.TabIndex = 31;
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(326, 556);
+            this.label15.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(49, 17);
+            this.label15.TabIndex = 32;
+            this.label15.Text = "Name:";
+            // 
+            // Name_Search
+            // 
+            this.Name_Search.Location = new System.Drawing.Point(488, 596);
+            this.Name_Search.Name = "Name_Search";
+            this.Name_Search.Size = new System.Drawing.Size(75, 23);
+            this.Name_Search.TabIndex = 33;
+            this.Name_Search.Text = "Search";
+            this.Name_Search.UseVisualStyleBackColor = true;
+            this.Name_Search.Click += new System.EventHandler(this.Name_Search_Click);
+            // 
             // Client
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1580, 753);
+            this.Controls.Add(this.Name_Search);
+            this.Controls.Add(this.label15);
+            this.Controls.Add(this.GameNameSearch);
+            this.Controls.Add(this.label14);
+            this.Controls.Add(this.DeveloperList);
+            this.Controls.Add(this.Low2High);
+            this.Controls.Add(this.High2Low);
+            this.Controls.Add(this.LessThanFive);
+            this.Controls.Add(this.label13);
+            this.Controls.Add(this.label12);
+            this.Controls.Add(this.label11);
+            this.Controls.Add(this.GenreBox);
             this.Controls.Add(this.Buy_Button);
             this.Controls.Add(this.LibraryBox);
             this.Controls.Add(this.label10);
@@ -332,6 +478,18 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.ListBox LibraryBox;
         private System.Windows.Forms.Button Buy_Button;
+        private System.Windows.Forms.ComboBox GenreBox;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.CheckBox LessThanFive;
+        private System.Windows.Forms.CheckBox High2Low;
+        private System.Windows.Forms.CheckBox Low2High;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.ComboBox DeveloperList;
+        private System.Windows.Forms.TextBox GameNameSearch;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Button Name_Search;
     }
 }
 

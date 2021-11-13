@@ -15,6 +15,8 @@ namespace GameStoreDatabaseProject
         List<Models.User> listOfUsers;
         List<Models.Game> listOfGames;
         List<Models.Library> libraryGames;
+        List<Models.Genre> genres;
+        List<Models.Developer> developers;
         public Client()
         {
             InitializeComponent();
@@ -30,7 +32,17 @@ namespace GameStoreDatabaseProject
             {
                 GameBox.Items.Add(game.GameName);
             }
-            
+            genres = gameAccess.GetGenres();
+            foreach(var genre in genres)
+            {
+                GenreBox.Items.Add(genre.GenreName);
+            }
+            developers = gameAccess.GetDeveloper();
+            foreach (var developer in developers)
+            {
+                DeveloperList.Items.Add(developer.DeveloperName);
+            }
+
         }
 
         private void RatingTrackBar_Scroll(object sender, System.EventArgs e)
@@ -71,6 +83,123 @@ namespace GameStoreDatabaseProject
                     libraryAccess.CreateLibrary(user.UserId, GameBox.Text);
                     UserList_SelectedIndexChanged(sender, e);
                 }
+            }
+        }
+
+        private void GenreBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            GameBox.Items.Clear();
+            DeveloperList.SelectedItem = null;
+            High2Low.Checked = false;
+            Low2High.Checked = false;
+            LessThanFive.Checked = false;
+            GameAccess gameAccess = new GameAccess();
+            listOfGames = gameAccess.GetGamesGenre(GenreBox.Text);
+            foreach (var game in listOfGames)
+            {
+                GameBox.Items.Add(game.GameName);
+            }
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            GameBox.Items.Clear();
+            GameAccess gameAccess = new GameAccess();
+            GenreBox.SelectedItem = null;
+            Low2High.Checked = false;
+            High2Low.Checked = false;
+            if (LessThanFive.Checked)
+            {
+               
+                listOfGames = gameAccess.GetGamesCheep();
+                foreach (var game in listOfGames)
+                {
+                    GameBox.Items.Add(game.GameName);
+                }
+            }
+            else
+            {
+                listOfGames = gameAccess.AllGames();
+                foreach (var game in listOfGames)
+                {
+                    GameBox.Items.Add(game.GameName);
+                }
+            }
+        }
+
+        private void High2Low_CheckedChanged(object sender, EventArgs e)
+        {
+            GameBox.Items.Clear();
+            GameAccess gameAccess = new GameAccess();
+            GenreBox.SelectedItem = null;
+            Low2High.Checked = false;
+            LessThanFive.Checked = false;
+            if (High2Low.Checked)
+            {
+                listOfGames = gameAccess.GetGamesHigh2Low();
+                foreach (var game in listOfGames)
+                {
+                    GameBox.Items.Add(game.GameName);
+                }
+            }
+            else
+            {
+                listOfGames = gameAccess.AllGames();
+                foreach (var game in listOfGames)
+                {
+                    GameBox.Items.Add(game.GameName);
+                }
+            }
+        }
+
+        private void Low2High_CheckedChanged(object sender, EventArgs e)
+        {
+            GameBox.Items.Clear();
+            GameAccess gameAccess = new GameAccess();
+            GenreBox.SelectedItem = null;
+            High2Low.Checked = false;
+            LessThanFive.Checked = false;
+            if (Low2High.Checked)
+            {
+                listOfGames = gameAccess.GetGamesLow2High();
+                foreach (var game in listOfGames)
+                {
+                    GameBox.Items.Add(game.GameName);
+                }
+            }
+            else
+            {
+                listOfGames = gameAccess.AllGames();
+                foreach (var game in listOfGames)
+                {
+                    GameBox.Items.Add(game.GameName);
+                }
+            }
+        }
+
+        private void DeveloperList_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            GameBox.Items.Clear();
+            GenreBox.SelectedItem = null;
+            High2Low.Checked = false;
+            Low2High.Checked = false;
+            LessThanFive.Checked = false;
+            GameAccess gameAccess = new GameAccess();
+            listOfGames = gameAccess.GetGamesDeveloper(DeveloperList.Text);
+            foreach (var game in listOfGames)
+            {
+                GameBox.Items.Add(game.GameName);
+            }
+        }
+
+        private void Name_Search_Click(object sender, EventArgs e)
+        {
+            GameBox.Items.Clear();
+            GameAccess gameAccess = new GameAccess();
+            listOfGames = gameAccess.GetGame(GameNameSearch.Text);
+            foreach (var game in listOfGames)
+            {
+                GameBox.Items.Add(game.GameName);
             }
         }
     }
