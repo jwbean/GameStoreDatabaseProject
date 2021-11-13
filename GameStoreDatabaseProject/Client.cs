@@ -59,5 +59,19 @@ namespace GameStoreDatabaseProject
                 LibraryBox.Items.Add(game.GameName);
             }
         }
+
+        private void Buy_Button_Click(object sender, EventArgs e)
+        {
+            string userName = UserList.Text;
+            foreach(var user in listOfUsers)
+            {
+                if (String.Compare(user.UserName, userName) == 0)
+                {
+                    LibraryAccess libraryAccess = new LibraryAccess();
+                    libraryAccess.CreateLibrary(user.UserId, GameBox.Text);
+                    UserList_SelectedIndexChanged(sender, e);
+                }
+            }
+        }
     }
 }

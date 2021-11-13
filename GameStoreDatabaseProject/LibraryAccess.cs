@@ -18,5 +18,14 @@ namespace GameStoreDatabaseProject
                 return output;
             }
         }
+        public void CreateLibrary(int userId, string gameName)
+        {
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(Connection.CnnVal("Database")))
+            {
+                List<Models.Library> library = new List<Models.Library>();
+                library.Add(new Models.Library { UserId = userId, GameName = gameName, PurchasedDate = DateTimeOffset.Now});
+                connection.Execute("dbo.CreateLibrary @UserId, @GameName, @PurchasedDate", library);
+            }
+        }
     }
 }

@@ -8,6 +8,7 @@ namespace GameStoreDatabaseProject.Models
 {
     public class Library
     {
+        public int UserId { get; set; }
         public string GameName { get; set; }
         public DateTimeOffset PurchasedDate { get; set; }
     }

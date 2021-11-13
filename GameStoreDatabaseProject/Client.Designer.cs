@@ -49,6 +49,7 @@
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.LibraryBox = new System.Windows.Forms.ListBox();
+            this.Buy_Button = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.RatingTrackBar)).BeginInit();
             this.SuspendLayout();
             // 
@@ -261,11 +262,22 @@
             this.LibraryBox.Size = new System.Drawing.Size(278, 404);
             this.LibraryBox.TabIndex = 20;
             // 
+            // Buy_Button
+            // 
+            this.Buy_Button.Location = new System.Drawing.Point(219, 554);
+            this.Buy_Button.Name = "Buy_Button";
+            this.Buy_Button.Size = new System.Drawing.Size(75, 23);
+            this.Buy_Button.TabIndex = 21;
+            this.Buy_Button.Text = "Buy";
+            this.Buy_Button.UseVisualStyleBackColor = true;
+            this.Buy_Button.Click += new System.EventHandler(this.Buy_Button_Click);
+            // 
             // Client
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1580, 753);
+            this.Controls.Add(this.Buy_Button);
             this.Controls.Add(this.LibraryBox);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.label9);
@@ -319,6 +331,7 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.ListBox LibraryBox;
+        private System.Windows.Forms.Button Buy_Button;
     }
 }
 
