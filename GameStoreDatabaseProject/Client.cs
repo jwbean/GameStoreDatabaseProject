@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace GameStoreDatabaseProject
 {
-    public partial class Form1 : Form
+    public partial class Client : Form
     {
-        public Form1()
+        public Client()
         {
             InitializeComponent();
             List<String> listOfUsers = new List<string> { "User1", "User2", "user3", "user4", "user5" };
@@ -26,6 +26,11 @@ namespace GameStoreDatabaseProject
         {
             // Display the trackbar value in the text box.
             RatingScore.Text = "" + ((double)RatingTrackBar.Value / 10);
+        }
+
+        private void Client_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

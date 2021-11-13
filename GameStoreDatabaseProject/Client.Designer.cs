@@ -1,6 +1,6 @@
 ﻿namespace GameStoreDatabaseProject
 {
-    partial class Form1
+    partial class Client
     {
         /// <summary>
         /// Required designer variable.
@@ -47,7 +47,7 @@
             // UserList
             // 
             this.UserList.FormattingEnabled = true;
-            this.UserList.Location = new System.Drawing.Point(667, 12);
+            this.UserList.Location = new System.Drawing.Point(12, 12);
             this.UserList.Name = "UserList";
             this.UserList.Size = new System.Drawing.Size(121, 21);
             this.UserList.TabIndex = 0;
@@ -161,11 +161,11 @@
             this.label7.TabIndex = 12;
             this.label7.Text = "Genre:";
             // 
-            // Form1
+            // Client
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1185, 612);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.ReviewDescription);
             this.Controls.Add(this.label6);
@@ -179,8 +179,9 @@
             this.Controls.Add(this.GameDetails);
             this.Controls.Add(this.GameBox);
             this.Controls.Add(this.UserList);
-            this.Name = "Form1";
+            this.Name = "Client";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.Client_Load);
             ((System.ComponentModel.ISupportInitialize)(this.RatingTrackBar)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
