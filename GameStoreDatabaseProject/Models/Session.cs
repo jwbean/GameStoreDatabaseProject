@@ -20,4 +20,9 @@ namespace GameStoreDatabaseProject.Models
         public string GameName { get; set; }
         public int AverageHoursPlayed { get; set; }
     }
+    public class TopPlayers
+    {
+        public string UserName { get; set; }
+        public int TotalHours { get; set; }
+    }
 }

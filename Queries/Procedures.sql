@@ -1,6 +1,4 @@
 GO
-CREATE DATABASE CIS5601;
-GO
 -- Here's a simple procedure fetching a single person, if the row exists.
 CREATE PROCEDURE dbo.RetrieveUser
    @UserName NVARCHAR(32)
@@ -65,6 +63,13 @@ AS
 SELECT *
 FROM dbo.Game G
 Order BY G.Price ASC
+GO
+-- Here's a simple procedure fetching all games of low to high
+CREATE PROCEDURE dbo.RetrieveGamesReleaseDate
+AS
+SELECT *
+FROM dbo.Game G
+Order BY G.ReleaseDate DESC
 GO
 -- Here's a simple procedure fetching a single person's library
 CREATE PROCEDURE dbo.RetrieveLibrary
@@ -201,3 +206,62 @@ FROM dbo.Game G
 INNER JOIN Library L ON G.GameName = L.GameName
 WHERE MONTH(L.PurchasedDate) = MONTH(GETDATE())
 GROUP BY Day(L.PurchasedDate)
+GO
+CREATE PROCEDURE dbo.EditUser
+	@Username NVARCHAR(32), @FirstName NVARCHAR(32),@LastName NVARCHAR(32)
+AS
+UPDATE dbo.[User]
+SET
+	FirstName = @FirstName,
+	LastName = @LastName
+WHERE UserName = @Username
+GO
+CREATE PROCEDURE dbo.EditGame
+	@GameName NVARCHAR(32), @Price INT
+AS
+UPDATE dbo.Game
+SET
+	Price = @Price
+WHERE GameName = @GameName
+GO
+CREATE PROCEDURE dbo.UpdateActiveUser
+	@UserId INT, @LastActiveDate DATETIMEOFFSET
+AS
+UPDATE dbo.[User]
+SET
+	LastActiveDate = @LastActiveDate
+WHERE UserId = @UserId
+GO
+CREATE PROCEDURE dbo.NewUsers
+AS
+SELECT U.UserId, U.UserName, U.DateJoined
+FROM dbo.[User] U
+WHERE U.DateJoined > (DATEADD(MONTH, DATEDIFF(MONTH, 0, CURRENT_TIMESTAMP) - 1, 0))
+GROUP BY U.UserId, U.UserName, U.DateJoined
+GO
+CREATE PROCEDURE dbo.TopSpender
+AS
+SELECT U.UserName, SUM(G.Price) 
+    AS TotalSpent
+FROM [Library] L
+    INNER JOIN dbo.Game G ON G.GameName = L.GameName
+	INNER JOIN dbo.[User] U ON U.UserId = L.UserId
+GROUP BY U.UserName
+ORDER BY TotalSpent DESC
+GO
+CREATE PROCEDURE dbo.TopPlayers
+	@GameName NVARCHAR(32)
+AS
+WITH SessionsCTE(UserId, SessionTime, SessionId, GameName) AS
+    (
+        SELECT S.UserId, DATEDIFF(HOUR, S.SessionStartTime,S.SessionEndTime ) AS SessionTime, S.SessionId, S.GameName
+        FROM [Session] S
+        GROUP BY S.UserId, S.SessionId, S.GameName, S.SessionStartTime, S.SessionEndTime
+    )
+SELECT U.UserName, 
+    SUM(SC.SessionTime) AS TotalHours
+FROM SessionsCTE SC
+INNER JOIN dbo.[User] U ON U.UserId = SC.UserId
+WHERE SC.GameName = @GameName
+GROUP BY U.UserName
+GO

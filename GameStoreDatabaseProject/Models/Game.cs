@@ -28,4 +28,5 @@ namespace GameStoreDatabaseProject.Models
         public int GamesSold { get; set; }
         public int TotalSales { get; set; }
     }
+
 }

@@ -18,16 +18,18 @@ namespace GameStoreDatabaseProject
         List<Models.Genre> genres;
         List<Models.Developer> developers;
         List<Models.Review> reviews;
+        UserAccess userAccess;
+        GameAccess gameAccess;
         public Client()
         {
             InitializeComponent();
-            UserAccess userAcess = new UserAccess();
-            listOfUsers = userAcess.AllUsers();
+            userAccess = new UserAccess();
+            listOfUsers = userAccess.AllUsers();
             foreach (var user in listOfUsers)
             {
                 UserList.Items.Add(user.UserName);
             }
-            GameAccess gameAccess = new GameAccess();
+            gameAccess = new GameAccess();
             listOfGames = gameAccess.AllGames();
             foreach(var game in listOfGames)
             {
@@ -60,8 +62,7 @@ namespace GameStoreDatabaseProject
             Genre.Text = game.GenreName;
             ReleaseDate.Text = (game.ReleaseDate).ToString();
             Price.Text = (game.Price).ToString();
-            UserAccess userAcess = new UserAccess();
-            reviews = userAcess.GetReviews(game.GameName);
+            reviews = userAccess.GetReviews(game.GameName);
             ReviewBox.Items.Clear();
             foreach (var review in reviews)
             {
@@ -101,7 +102,7 @@ namespace GameStoreDatabaseProject
             High2Low.Checked = false;
             Low2High.Checked = false;
             LessThanFive.Checked = false;
-            GameAccess gameAccess = new GameAccess();
+            FilterRelease.Checked = false;
             listOfGames = gameAccess.GetGamesGenre(GenreBox.Text);
             foreach (var game in listOfGames)
             {
@@ -112,10 +113,11 @@ namespace GameStoreDatabaseProject
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
             GameBox.Items.Clear();
-            GameAccess gameAccess = new GameAccess();
             GenreBox.SelectedItem = null;
+            DeveloperList.SelectedItem = null;
             Low2High.Checked = false;
             High2Low.Checked = false;
+            FilterRelease.Checked = false;
             if (LessThanFive.Checked)
             {
                
@@ -138,10 +140,11 @@ namespace GameStoreDatabaseProject
         private void High2Low_CheckedChanged(object sender, EventArgs e)
         {
             GameBox.Items.Clear();
-            GameAccess gameAccess = new GameAccess();
             GenreBox.SelectedItem = null;
+            DeveloperList.SelectedItem = null;
             Low2High.Checked = false;
             LessThanFive.Checked = false;
+            FilterRelease.Checked = false;
             if (High2Low.Checked)
             {
                 listOfGames = gameAccess.GetGamesHigh2Low();
@@ -163,10 +166,11 @@ namespace GameStoreDatabaseProject
         private void Low2High_CheckedChanged(object sender, EventArgs e)
         {
             GameBox.Items.Clear();
-            GameAccess gameAccess = new GameAccess();
             GenreBox.SelectedItem = null;
+            DeveloperList.SelectedItem = null;
             High2Low.Checked = false;
             LessThanFive.Checked = false;
+            FilterRelease.Checked = false;
             if (Low2High.Checked)
             {
                 listOfGames = gameAccess.GetGamesLow2High();
@@ -192,7 +196,7 @@ namespace GameStoreDatabaseProject
             High2Low.Checked = false;
             Low2High.Checked = false;
             LessThanFive.Checked = false;
-            GameAccess gameAccess = new GameAccess();
+            FilterRelease.Checked = false;
             listOfGames = gameAccess.GetGamesDeveloper(DeveloperList.Text);
             foreach (var game in listOfGames)
             {
@@ -203,7 +207,12 @@ namespace GameStoreDatabaseProject
         private void Name_Search_Click(object sender, EventArgs e)
         {
             GameBox.Items.Clear();
-            GameAccess gameAccess = new GameAccess();
+            GenreBox.SelectedItem = null;
+            DeveloperList.SelectedItem = null;
+            High2Low.Checked = false;
+            Low2High.Checked = false;
+            LessThanFive.Checked = false;
+            FilterRelease.Checked = false;
             listOfGames = gameAccess.GetGame(GameNameSearch.Text);
             foreach (var game in listOfGames)
             {
@@ -218,7 +227,6 @@ namespace GameStoreDatabaseProject
             {
                 if (String.Compare(user.UserName, userName) == 0)
                 {
-                    UserAccess userAccess = new UserAccess();
                     userAccess.CreateReview(user.UserId, LibraryBox.Text, ReviewDescription.Text,Int32.Parse(RatingScore.Text));
                     UserList_SelectedIndexChanged(sender, e);
                 }
@@ -232,7 +240,7 @@ namespace GameStoreDatabaseProject
                 ReviewBox.Items.Clear();
                 LowScore.Checked = false;
                 Recent.Checked = false;
-                UserAccess userAccess = new UserAccess();
+                YourReview.Checked = false;
                 reviews = userAccess.GetReviewsHigh(GameBox.Text);
                 foreach (var review in reviews)
                 {
@@ -249,7 +257,7 @@ namespace GameStoreDatabaseProject
                 ReviewBox.Items.Clear();
                 HighScore.Checked = false;
                 Recent.Checked = false;
-                UserAccess userAccess = new UserAccess();
+                YourReview.Checked = false;
                 reviews = userAccess.GetReviewsLow(GameBox.Text);
                 foreach (var review in reviews)
                 {
@@ -266,7 +274,7 @@ namespace GameStoreDatabaseProject
                 ReviewBox.Items.Clear();
                 LowScore.Checked = false;
                 HighScore.Checked = false;
-                UserAccess userAccess = new UserAccess();
+                YourReview.Checked = false;
                 reviews = userAccess.GetReviewsRecent(GameBox.Text);
                 foreach (var review in reviews)
                 {
@@ -283,9 +291,60 @@ namespace GameStoreDatabaseProject
             {
                 if (String.Compare(user.UserName, userName) == 0)
                 {
-                    UserAccess userAccess = new UserAccess();
                     userAccess.CreateSession(user.UserId, LibraryBox.Text, Int32.Parse(Hours.Text));
+                    userAccess.UpdateLastActive(user.UserId);
                     UserList_SelectedIndexChanged(sender, e);
+                }
+            }
+        }
+
+        private void FilterRelease_CheckedChanged(object sender, EventArgs e)
+        {
+            GameBox.Items.Clear();
+            GenreBox.SelectedItem = null;
+            DeveloperList.SelectedItem = null;
+            Low2High.Checked = false;
+            High2Low.Checked = false;
+            LessThanFive.Checked = false;
+            if (FilterRelease.Checked)
+            {
+
+                listOfGames = gameAccess.GetGamesReleaseDate();
+                foreach (var game in listOfGames)
+                {
+                    GameBox.Items.Add(game.GameName);
+                }
+            }
+            else
+            {
+                listOfGames = gameAccess.AllGames();
+                foreach (var game in listOfGames)
+                {
+                    GameBox.Items.Add(game.GameName);
+                }
+            }
+        }
+
+        private void YourReview_CheckedChanged(object sender, EventArgs e)
+        {
+            if (YourReview.Checked)
+            {
+                ReviewBox.Items.Clear();
+                HighScore.Checked = false;
+                LowScore.Checked = false;
+                Recent.Checked = false;
+                string userName = UserList.Text;
+                foreach (var user in listOfUsers)
+                {
+                    if (String.Compare(user.UserName, userName) == 0)
+                    {
+                        reviews = userAccess.GetUserReviews(GameBox.Text, user.UserId);
+                        foreach (var review in reviews)
+                        {
+                            ReviewBox.Items.Add((review.FiveStarScore).ToString() + ": " + review.Description);
+                        }
+                        break;
+                    }
                 }
             }
         }

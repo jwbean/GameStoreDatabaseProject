@@ -34,7 +34,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
             this.RatingScore = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -62,7 +61,6 @@
             this.label15 = new System.Windows.Forms.Label();
             this.Name_Search = new System.Windows.Forms.Button();
             this.ReviewBox = new System.Windows.Forms.ListBox();
-            this.label16 = new System.Windows.Forms.Label();
             this.RatingTrackBar = new System.Windows.Forms.TrackBar();
             this.Review_Submit = new System.Windows.Forms.Button();
             this.Recent = new System.Windows.Forms.CheckBox();
@@ -72,14 +70,17 @@
             this.label18 = new System.Windows.Forms.Label();
             this.Hours = new System.Windows.Forms.TextBox();
             this.Hours_Played_Button = new System.Windows.Forms.Button();
+            this.label4 = new System.Windows.Forms.Label();
+            this.FilterRelease = new System.Windows.Forms.CheckBox();
+            this.YourReview = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.RatingTrackBar)).BeginInit();
             this.SuspendLayout();
             // 
             // UserList
             // 
             this.UserList.FormattingEnabled = true;
-            this.UserList.Location = new System.Drawing.Point(1366, 22);
-            this.UserList.Margin = new System.Windows.Forms.Padding(4);
+            this.UserList.Location = new System.Drawing.Point(1365, 22);
+            this.UserList.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.UserList.Name = "UserList";
             this.UserList.Size = new System.Drawing.Size(160, 24);
             this.UserList.TabIndex = 0;
@@ -89,10 +90,10 @@
             // 
             this.GameBox.FormattingEnabled = true;
             this.GameBox.ItemHeight = 16;
-            this.GameBox.Location = new System.Drawing.Point(16, 132);
-            this.GameBox.Margin = new System.Windows.Forms.Padding(4);
+            this.GameBox.Location = new System.Drawing.Point(13, 98);
+            this.GameBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.GameBox.Name = "GameBox";
-            this.GameBox.Size = new System.Drawing.Size(278, 404);
+            this.GameBox.Size = new System.Drawing.Size(279, 404);
             this.GameBox.TabIndex = 1;
             this.GameBox.SelectedIndexChanged += new System.EventHandler(this.GameBox_SelectedIndexChanged);
             // 
@@ -100,7 +101,7 @@
             // 
             this.GameDetails.AutoSize = true;
             this.GameDetails.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.GameDetails.Location = new System.Drawing.Point(312, 132);
+            this.GameDetails.Location = new System.Drawing.Point(315, 106);
             this.GameDetails.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.GameDetails.Name = "GameDetails";
             this.GameDetails.Size = new System.Drawing.Size(110, 17);
@@ -110,7 +111,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(312, 282);
+            this.label1.Location = new System.Drawing.Point(312, 256);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(44, 17);
@@ -120,7 +121,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(312, 172);
+            this.label2.Location = new System.Drawing.Point(315, 146);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(81, 17);
@@ -130,27 +131,17 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(310, 244);
+            this.label3.Location = new System.Drawing.Point(312, 218);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(98, 17);
             this.label3.TabIndex = 5;
             this.label3.Text = "Release Date:";
             // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(312, 320);
-            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(113, 17);
-            this.label4.TabIndex = 6;
-            this.label4.Text = "Five Star Rating:";
-            // 
             // RatingScore
             // 
-            this.RatingScore.Location = new System.Drawing.Point(1094, 169);
-            this.RatingScore.Margin = new System.Windows.Forms.Padding(4);
+            this.RatingScore.Location = new System.Drawing.Point(1136, 147);
+            this.RatingScore.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.RatingScore.Name = "RatingScore";
             this.RatingScore.Size = new System.Drawing.Size(49, 22);
             this.RatingScore.TabIndex = 8;
@@ -159,7 +150,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(968, 174);
+            this.label5.Location = new System.Drawing.Point(1011, 152);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(105, 17);
@@ -170,7 +161,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(1018, 132);
+            this.label6.Location = new System.Drawing.Point(1062, 110);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(112, 17);
@@ -179,8 +170,8 @@
             // 
             // ReviewDescription
             // 
-            this.ReviewDescription.Location = new System.Drawing.Point(971, 251);
-            this.ReviewDescription.Margin = new System.Windows.Forms.Padding(4);
+            this.ReviewDescription.Location = new System.Drawing.Point(1014, 229);
+            this.ReviewDescription.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.ReviewDescription.Multiline = true;
             this.ReviewDescription.Name = "ReviewDescription";
             this.ReviewDescription.Size = new System.Drawing.Size(225, 74);
@@ -189,7 +180,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(312, 208);
+            this.label7.Location = new System.Drawing.Point(312, 182);
             this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(52, 17);
@@ -200,7 +191,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(72, 85);
+            this.label8.Location = new System.Drawing.Point(105, 64);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(71, 29);
             this.label8.TabIndex = 13;
@@ -209,7 +200,7 @@
             // Developer
             // 
             this.Developer.AutoSize = true;
-            this.Developer.Location = new System.Drawing.Point(400, 172);
+            this.Developer.Location = new System.Drawing.Point(403, 146);
             this.Developer.Name = "Developer";
             this.Developer.Size = new System.Drawing.Size(71, 17);
             this.Developer.TabIndex = 14;
@@ -218,7 +209,7 @@
             // Genre
             // 
             this.Genre.AutoSize = true;
-            this.Genre.Location = new System.Drawing.Point(375, 208);
+            this.Genre.Location = new System.Drawing.Point(377, 182);
             this.Genre.Name = "Genre";
             this.Genre.Size = new System.Drawing.Size(45, 17);
             this.Genre.TabIndex = 15;
@@ -227,7 +218,7 @@
             // ReleaseDate
             // 
             this.ReleaseDate.AutoSize = true;
-            this.ReleaseDate.Location = new System.Drawing.Point(414, 244);
+            this.ReleaseDate.Location = new System.Drawing.Point(416, 218);
             this.ReleaseDate.Name = "ReleaseDate";
             this.ReleaseDate.Size = new System.Drawing.Size(36, 17);
             this.ReleaseDate.TabIndex = 16;
@@ -236,7 +227,7 @@
             // Price
             // 
             this.Price.AutoSize = true;
-            this.Price.Location = new System.Drawing.Point(371, 282);
+            this.Price.Location = new System.Drawing.Point(373, 256);
             this.Price.Name = "Price";
             this.Price.Size = new System.Drawing.Size(39, 17);
             this.Price.TabIndex = 17;
@@ -256,7 +247,7 @@
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(1289, 85);
+            this.label10.Location = new System.Drawing.Point(1347, 64);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(86, 29);
             this.label10.TabIndex = 19;
@@ -266,15 +257,16 @@
             // 
             this.LibraryBox.FormattingEnabled = true;
             this.LibraryBox.ItemHeight = 16;
-            this.LibraryBox.Location = new System.Drawing.Point(1248, 132);
-            this.LibraryBox.Margin = new System.Windows.Forms.Padding(4);
+            this.LibraryBox.Location = new System.Drawing.Point(1249, 106);
+            this.LibraryBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.LibraryBox.Name = "LibraryBox";
-            this.LibraryBox.Size = new System.Drawing.Size(278, 404);
+            this.LibraryBox.Size = new System.Drawing.Size(276, 308);
             this.LibraryBox.TabIndex = 20;
             // 
             // Buy_Button
             // 
-            this.Buy_Button.Location = new System.Drawing.Point(219, 554);
+            this.Buy_Button.Location = new System.Drawing.Point(205, 517);
+            this.Buy_Button.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Buy_Button.Name = "Buy_Button";
             this.Buy_Button.Size = new System.Drawing.Size(75, 23);
             this.Buy_Button.TabIndex = 21;
@@ -285,8 +277,8 @@
             // GenreBox
             // 
             this.GenreBox.FormattingEnabled = true;
-            this.GenreBox.Location = new System.Drawing.Point(403, 400);
-            this.GenreBox.Margin = new System.Windows.Forms.Padding(4);
+            this.GenreBox.Location = new System.Drawing.Point(406, 332);
+            this.GenreBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.GenreBox.Name = "GenreBox";
             this.GenreBox.Size = new System.Drawing.Size(160, 24);
             this.GenreBox.TabIndex = 22;
@@ -296,7 +288,7 @@
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(315, 360);
+            this.label11.Location = new System.Drawing.Point(315, 296);
             this.label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(50, 17);
@@ -306,7 +298,7 @@
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(326, 400);
+            this.label12.Location = new System.Drawing.Point(312, 332);
             this.label12.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(52, 17);
@@ -316,7 +308,7 @@
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(310, 451);
+            this.label13.Location = new System.Drawing.Point(334, 297);
             this.label13.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(0, 17);
@@ -325,7 +317,8 @@
             // LessThanFive
             // 
             this.LessThanFive.AutoSize = true;
-            this.LessThanFive.Location = new System.Drawing.Point(403, 463);
+            this.LessThanFive.Location = new System.Drawing.Point(406, 395);
+            this.LessThanFive.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.LessThanFive.Name = "LessThanFive";
             this.LessThanFive.Size = new System.Drawing.Size(46, 21);
             this.LessThanFive.TabIndex = 26;
@@ -336,7 +329,8 @@
             // High2Low
             // 
             this.High2Low.AutoSize = true;
-            this.High2Low.Location = new System.Drawing.Point(403, 490);
+            this.High2Low.Location = new System.Drawing.Point(406, 422);
+            this.High2Low.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.High2Low.Name = "High2Low";
             this.High2Low.Size = new System.Drawing.Size(101, 21);
             this.High2Low.TabIndex = 27;
@@ -347,7 +341,8 @@
             // Low2High
             // 
             this.Low2High.AutoSize = true;
-            this.Low2High.Location = new System.Drawing.Point(403, 517);
+            this.Low2High.Location = new System.Drawing.Point(406, 447);
+            this.Low2High.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Low2High.Name = "Low2High";
             this.Low2High.Size = new System.Drawing.Size(101, 21);
             this.Low2High.TabIndex = 28;
@@ -358,7 +353,7 @@
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(304, 432);
+            this.label14.Location = new System.Drawing.Point(312, 361);
             this.label14.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(77, 17);
@@ -368,8 +363,8 @@
             // DeveloperList
             // 
             this.DeveloperList.FormattingEnabled = true;
-            this.DeveloperList.Location = new System.Drawing.Point(403, 429);
-            this.DeveloperList.Margin = new System.Windows.Forms.Padding(4);
+            this.DeveloperList.Location = new System.Drawing.Point(406, 361);
+            this.DeveloperList.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.DeveloperList.Name = "DeveloperList";
             this.DeveloperList.Size = new System.Drawing.Size(160, 24);
             this.DeveloperList.TabIndex = 29;
@@ -377,8 +372,8 @@
             // 
             // GameNameSearch
             // 
-            this.GameNameSearch.Location = new System.Drawing.Point(403, 553);
-            this.GameNameSearch.Margin = new System.Windows.Forms.Padding(4);
+            this.GameNameSearch.Location = new System.Drawing.Point(406, 503);
+            this.GameNameSearch.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.GameNameSearch.Multiline = true;
             this.GameNameSearch.Name = "GameNameSearch";
             this.GameNameSearch.Size = new System.Drawing.Size(160, 24);
@@ -387,7 +382,7 @@
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(326, 556);
+            this.label15.Location = new System.Drawing.Point(312, 503);
             this.label15.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(49, 17);
@@ -396,7 +391,8 @@
             // 
             // Name_Search
             // 
-            this.Name_Search.Location = new System.Drawing.Point(488, 596);
+            this.Name_Search.Location = new System.Drawing.Point(406, 542);
+            this.Name_Search.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name_Search.Name = "Name_Search";
             this.Name_Search.Size = new System.Drawing.Size(75, 23);
             this.Name_Search.TabIndex = 33;
@@ -408,27 +404,17 @@
             // 
             this.ReviewBox.FormattingEnabled = true;
             this.ReviewBox.ItemHeight = 16;
-            this.ReviewBox.Location = new System.Drawing.Point(625, 132);
-            this.ReviewBox.Margin = new System.Windows.Forms.Padding(4);
+            this.ReviewBox.Location = new System.Drawing.Point(627, 106);
+            this.ReviewBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.ReviewBox.Name = "ReviewBox";
-            this.ReviewBox.Size = new System.Drawing.Size(278, 404);
+            this.ReviewBox.Size = new System.Drawing.Size(255, 196);
             this.ReviewBox.TabIndex = 34;
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.Location = new System.Drawing.Point(642, 85);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(105, 29);
-            this.label16.TabIndex = 35;
-            this.label16.Text = "Reviews";
             // 
             // RatingTrackBar
             // 
             this.RatingTrackBar.LargeChange = 10;
-            this.RatingTrackBar.Location = new System.Drawing.Point(1004, 205);
-            this.RatingTrackBar.Margin = new System.Windows.Forms.Padding(4);
+            this.RatingTrackBar.Location = new System.Drawing.Point(1047, 184);
+            this.RatingTrackBar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.RatingTrackBar.Maximum = 50;
             this.RatingTrackBar.Name = "RatingTrackBar";
             this.RatingTrackBar.Size = new System.Drawing.Size(139, 56);
@@ -438,7 +424,8 @@
             // 
             // Review_Submit
             // 
-            this.Review_Submit.Location = new System.Drawing.Point(1121, 332);
+            this.Review_Submit.Location = new System.Drawing.Point(1164, 310);
+            this.Review_Submit.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Review_Submit.Name = "Review_Submit";
             this.Review_Submit.Size = new System.Drawing.Size(75, 23);
             this.Review_Submit.TabIndex = 36;
@@ -449,7 +436,8 @@
             // Recent
             // 
             this.Recent.AutoSize = true;
-            this.Recent.Location = new System.Drawing.Point(971, 474);
+            this.Recent.Location = new System.Drawing.Point(667, 412);
+            this.Recent.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Recent.Name = "Recent";
             this.Recent.Size = new System.Drawing.Size(75, 21);
             this.Recent.TabIndex = 37;
@@ -461,7 +449,7 @@
             // 
             this.label17.AutoSize = true;
             this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label17.Location = new System.Drawing.Point(928, 383);
+            this.label17.Location = new System.Drawing.Point(624, 331);
             this.label17.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(50, 17);
@@ -471,7 +459,8 @@
             // HighScore
             // 
             this.HighScore.AutoSize = true;
-            this.HighScore.Location = new System.Drawing.Point(971, 414);
+            this.HighScore.Location = new System.Drawing.Point(667, 362);
+            this.HighScore.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.HighScore.Name = "HighScore";
             this.HighScore.Size = new System.Drawing.Size(101, 21);
             this.HighScore.TabIndex = 39;
@@ -482,7 +471,8 @@
             // LowScore
             // 
             this.LowScore.AutoSize = true;
-            this.LowScore.Location = new System.Drawing.Point(971, 447);
+            this.LowScore.Location = new System.Drawing.Point(667, 387);
+            this.LowScore.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.LowScore.Name = "LowScore";
             this.LowScore.Size = new System.Drawing.Size(101, 21);
             this.LowScore.TabIndex = 40;
@@ -493,17 +483,17 @@
             // label18
             // 
             this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(1245, 570);
+            this.label18.Location = new System.Drawing.Point(1258, 446);
             this.label18.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(121, 21);
+            this.label18.Size = new System.Drawing.Size(97, 17);
             this.label18.TabIndex = 41;
             this.label18.Text = "Hours Played:";
             // 
             // Hours
             // 
-            this.Hours.Location = new System.Drawing.Point(1352, 569);
-            this.Hours.Margin = new System.Windows.Forms.Padding(4);
+            this.Hours.Location = new System.Drawing.Point(1365, 445);
+            this.Hours.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Hours.Name = "Hours";
             this.Hours.Size = new System.Drawing.Size(49, 22);
             this.Hours.TabIndex = 42;
@@ -511,7 +501,8 @@
             // 
             // Hours_Played_Button
             // 
-            this.Hours_Played_Button.Location = new System.Drawing.Point(1326, 613);
+            this.Hours_Played_Button.Location = new System.Drawing.Point(1338, 489);
+            this.Hours_Played_Button.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Hours_Played_Button.Name = "Hours_Played_Button";
             this.Hours_Played_Button.Size = new System.Drawing.Size(75, 23);
             this.Hours_Played_Button.TabIndex = 43;
@@ -519,11 +510,49 @@
             this.Hours_Played_Button.UseVisualStyleBackColor = true;
             this.Hours_Played_Button.Click += new System.EventHandler(this.Hours_Played_Button_Click);
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(504, 106);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(90, 21);
+            this.label4.TabIndex = 44;
+            this.label4.Text = "Reviews:";
+            // 
+            // FilterRelease
+            // 
+            this.FilterRelease.AutoSize = true;
+            this.FilterRelease.Location = new System.Drawing.Point(406, 469);
+            this.FilterRelease.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.FilterRelease.Name = "FilterRelease";
+            this.FilterRelease.Size = new System.Drawing.Size(112, 21);
+            this.FilterRelease.TabIndex = 45;
+            this.FilterRelease.Text = "ReleaseDate";
+            this.FilterRelease.UseVisualStyleBackColor = true;
+            this.FilterRelease.CheckedChanged += new System.EventHandler(this.FilterRelease_CheckedChanged);
+            // 
+            // YourReview
+            // 
+            this.YourReview.AutoSize = true;
+            this.YourReview.Location = new System.Drawing.Point(667, 437);
+            this.YourReview.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.YourReview.Name = "YourReview";
+            this.YourReview.Size = new System.Drawing.Size(145, 26);
+            this.YourReview.TabIndex = 46;
+            this.YourReview.Text = "Your Reviews";
+            this.YourReview.UseVisualStyleBackColor = true;
+            this.YourReview.CheckedChanged += new System.EventHandler(this.YourReview_CheckedChanged);
+            // 
             // Client
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1568, 699);
+            this.ClientSize = new System.Drawing.Size(1551, 676);
+            this.Controls.Add(this.YourReview);
+            this.Controls.Add(this.FilterRelease);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.Hours_Played_Button);
             this.Controls.Add(this.Hours);
             this.Controls.Add(this.label18);
@@ -532,7 +561,6 @@
             this.Controls.Add(this.label17);
             this.Controls.Add(this.Recent);
             this.Controls.Add(this.Review_Submit);
-            this.Controls.Add(this.label16);
             this.Controls.Add(this.ReviewBox);
             this.Controls.Add(this.Name_Search);
             this.Controls.Add(this.label15);
@@ -561,14 +589,13 @@
             this.Controls.Add(this.label5);
             this.Controls.Add(this.RatingScore);
             this.Controls.Add(this.RatingTrackBar);
-            this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.GameDetails);
             this.Controls.Add(this.GameBox);
             this.Controls.Add(this.UserList);
-            this.Margin = new System.Windows.Forms.Padding(4);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "Client";
             this.Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)(this.RatingTrackBar)).EndInit();
@@ -585,7 +612,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox RatingScore;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
@@ -613,7 +639,6 @@
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Button Name_Search;
         private System.Windows.Forms.ListBox ReviewBox;
-        private System.Windows.Forms.Label label16;
         private System.Windows.Forms.TrackBar RatingTrackBar;
         private System.Windows.Forms.Button Review_Submit;
         private System.Windows.Forms.CheckBox Recent;
@@ -623,6 +648,9 @@
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.TextBox Hours;
         private System.Windows.Forms.Button Hours_Played_Button;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.CheckBox FilterRelease;
+        private System.Windows.Forms.CheckBox YourReview;
     }
 }
 

@@ -58,6 +58,14 @@ namespace GameStoreDatabaseProject
                 return output;
             }
         }
+        public List<Models.Game> GetGamesReleaseDate()
+        {
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(Connection.CnnVal("Database")))
+            {
+                var output = connection.Query<Models.Game>("dbo.RetrieveGamesReleaseDate").ToList();
+                return output;
+            }
+        }
         public List<Models.Genre> GetGenres()
         {
             using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(Connection.CnnVal("Database")))
@@ -98,6 +106,14 @@ namespace GameStoreDatabaseProject
                 return output;
             }
         }
+        public List<Models.TopPlayers> TopPlayers(string gameName)
+        {
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(Connection.CnnVal("Database")))
+            {
+                var output = connection.Query<Models.TopPlayers>("dbo.TopPlayers @GameName",new { GameName = gameName }).ToList();
+                return output;
+            }
+        }
         public void CreateGame(string gameName, string developerName, string genre, int price)
         {
             using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(Connection.CnnVal("Database")))
@@ -105,6 +121,14 @@ namespace GameStoreDatabaseProject
                 List<Models.Game> game = new List<Models.Game>();
                 game.Add(new Models.Game { GameName = gameName, DeveloperName = developerName, GenreName = genre, Price = price, ReleaseDate = DateTimeOffset.Now, IsRemoved = true });
                 connection.Execute("dbo.CreateGame @GameName, @DeveloperName, @GenreName, @Price, @ReleasedDate, @IsRemoved", game);
+
+            }
+        }
+        public void EditGame(string gameName, int price)
+        {
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(Connection.CnnVal("Database")))
+            {
+                connection.Execute("dbo.EditGame @GameName,@Price", new { GameName = gameName, Price = price });
 
             }
         }

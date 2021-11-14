@@ -49,11 +49,27 @@ namespace GameStoreDatabaseProject
                 return output;
             }
         }
+        public List<Models.Review> GetUserReviews(string gameName, int userId)
+        {
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(Connection.CnnVal("Database")))
+            {
+                var output = connection.Query<Models.Review>("dbo.RetrieveReviewUser @GameName, @UserId", new { GameName = gameName, UserId = userId }).ToList();
+                return output;
+            }
+        }
         public List<Models.User> AllUsers()
         {
             using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(Connection.CnnVal("Database")))
             {
                 var output = connection.Query<Models.User>("dbo.RetrieveUsers").ToList();
+                return output;
+            }
+        }
+        public List<Models.TopSpender> TopSpender()
+        {
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(Connection.CnnVal("Database")))
+            {
+                var output = connection.Query<Models.TopSpender>("dbo.TopSpender").ToList();
                 return output;
             }
         }
@@ -100,9 +116,24 @@ namespace GameStoreDatabaseProject
         {
             using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(Connection.CnnVal("Database")))
             {
-                DateTimeOffset time = DateTimeOffset.Now.AddDays(-14);
                 var output = connection.Query<Models.ActiveUser>("dbo.ActiveUsers @FirstDate, @LastDate",new { FirstDate = DateTimeOffset.Now.AddDays(-14),LastDate = DateTimeOffset.Now}).ToList();
                 return output;
+
+            }
+        }
+        public void UpdateLastActive(int userId)
+        {
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(Connection.CnnVal("Database")))
+            {
+                connection.Execute("dbo.UpdateActiveUser @UserId,@LastActiveDate", new { UserId = userId, LastActiveDate = DateTimeOffset.Now });
+
+            }
+        }
+        public void EditUser(string userName,string firstName, string lastName)
+        {
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(Connection.CnnVal("Database")))
+            {
+                connection.Execute("dbo.EditUser @UserName,@FirstName,@LastName", new { UserName = userName, FirstName = firstName, LastName = lastName });
 
             }
         }

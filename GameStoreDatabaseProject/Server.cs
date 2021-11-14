@@ -18,11 +18,15 @@ namespace GameStoreDatabaseProject
         List<Models.FirstMonthSales> firstMonthSales;
         List<Models.BestDayOFSales> bestDayOFSales;
         List<Models.ActiveUser> activeUsers;
+        List<Models.TopSpender> topSpenders;
+        List<Models.TopPlayers> topPlayers;
+        UserAccess userAccess;
+        GameAccess gameAccess;
         public Server()
         {
             InitializeComponent();
-            UserAccess userAccess = new UserAccess();
-            GameAccess gameAccess = new GameAccess();
+            userAccess = new UserAccess();
+            gameAccess = new GameAccess();
             games = gameAccess.AllGames();
             foreach (var item in games)
             {
@@ -53,18 +57,21 @@ namespace GameStoreDatabaseProject
             {
                 TopDay.Items.Add("Day: "+item.PurchasedDate + " Copies: "+item.GamesSold+" Sales: "+ item.TotalSales);
             }
+            topSpenders = userAccess.TopSpender();
+            foreach (var item in topSpenders)
+            {
+                TopSpenders.Items.Add(item.UserName+": " + item.TotalSpent);
+            }
 
         }
 
         private void Add_User_Button_Click(object sender, EventArgs e)
         {
-            UserAccess useraccess = new UserAccess();
-            useraccess.CreateUser(UserName.Text, LastName.Text, FirstName.Text);
+            userAccess.CreateUser(UserName.Text, LastName.Text, FirstName.Text);
         }
 
         private void Add_Game_Button_Click(object sender, EventArgs e)
         {
-            GameAccess gameAccess = new GameAccess();
             gameAccess.CreateGame(GameName.Text, Developer.Text, GenreName.Text, Int32.Parse(Price.Text));
         }
 
@@ -72,6 +79,26 @@ namespace GameStoreDatabaseProject
         {
             Client client = new Client();
             client.Show();
+        }
+
+        private void EditUser_Click(object sender, EventArgs e)
+        {
+            userAccess.EditUser(UserBox.Text, EditFirstName.Text, EditLastName.Text);
+        }
+
+        private void EditGame_Click(object sender, EventArgs e)
+        {
+            gameAccess.EditGame(GameBox.Text, Int32.Parse(EditPrice.Text));
+        }
+
+        private void GameBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            TopPlayTime.Items.Clear();
+            topPlayers = gameAccess.TopPlayers(GameBox.Text);
+            foreach (var item in topPlayers)
+            {
+                TopPlayTime.Items.Add(item.UserName+": "+item.TotalHours);
+            }
         }
     }
 }
