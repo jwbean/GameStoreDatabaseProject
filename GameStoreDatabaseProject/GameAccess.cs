@@ -82,6 +82,22 @@ namespace GameStoreDatabaseProject
                 return output;
             }
         }
+        public List<Models.FirstMonthSales> FirstMonthSales()
+        {
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(Connection.CnnVal("Database")))
+            {
+                var output = connection.Query<Models.FirstMonthSales>("dbo.FirstMonthSales").ToList();
+                return output;
+            }
+        }
+        public List<Models.BestDayOFSales> BestDayofSales()
+        {
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(Connection.CnnVal("Database")))
+            {
+                var output = connection.Query<Models.BestDayOFSales>("dbo.BestDayOFSales").ToList();
+                return output;
+            }
+        }
         public void CreateGame(string gameName, string developerName, string genre, int price)
         {
             using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(Connection.CnnVal("Database")))
@@ -92,5 +108,6 @@ namespace GameStoreDatabaseProject
 
             }
         }
+
     }
 }

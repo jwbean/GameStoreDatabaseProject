@@ -16,4 +16,8 @@ namespace GameStoreDatabaseProject.Models
         public DateTimeOffset LastActiveDate { get; set; }
         public bool IsRemoved { get; set; }
     }
+    public class ActiveUser
+    {
+        public int ActiveUsers { get; set; }
+    }
 }

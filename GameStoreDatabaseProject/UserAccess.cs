@@ -87,6 +87,24 @@ namespace GameStoreDatabaseProject
 
             }
         }
+        public List<Models.AverageHours> AverageHoursPlayed()
+        {
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(Connection.CnnVal("Database")))
+            {
+                var output = connection.Query<Models.AverageHours>("dbo.AverageHoursPlayed").ToList();
+                return output;
 
+            }
+        }
+        public List<Models.ActiveUser> ActiveUsers()
+        {
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(Connection.CnnVal("Database")))
+            {
+                DateTimeOffset time = DateTimeOffset.Now.AddDays(-14);
+                var output = connection.Query<Models.ActiveUser>("dbo.ActiveUsers @FirstDate, @LastDate",new { FirstDate = DateTimeOffset.Now.AddDays(-14),LastDate = DateTimeOffset.Now}).ToList();
+                return output;
+
+            }
+        }
     }
 }

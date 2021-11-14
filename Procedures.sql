@@ -159,9 +159,45 @@ Values
 GO
 -- Here's a simple procedure creating a single library entry
 CREATE PROCEDURE dbo.CreateSession
-   @UserId Int, @SessionStartTime DATETIMEOFFSET, @SessionEndTime DATETIMEOFFSET
+   @UserId Int, @GameName NVARCHAR(32), @SessionStartTime DATETIMEOFFSET, @SessionEndTime DATETIMEOFFSET
 AS
-INSERT INTO dbo.Session(UserId,SessionStartTime,SessionEndTime)
+INSERT INTO dbo.Session(UserId,GameName,SessionStartTime,SessionEndTime)
 Values
-	(@UserId,@SessionStartTime,@SessionEndTime)
+	(@UserId,@GameName,@SessionStartTime,@SessionEndTime)
 GO
+CREATE PROCEDURE dbo.AverageHoursPlayed
+AS
+WITH SessionsCTE(UserId, SessionTime, SessionId, GameName) AS
+    (
+        SELECT S.UserId, DATEDIFF(HOUR, S.SessionStartTime,S.SessionEndTime ) AS SessionTime, S.SessionId, S.GameName
+        FROM [Session] S
+        GROUP BY S.UserId, S.SessionId, S.GameName, S.SessionStartTime, S.SessionEndTime
+    )
+SELECT SC.GameName, 
+    SUM(SC.SessionTime)/COUNT(DISTINCT SC.UserId) AS AverageHoursPlayed 
+FROM SessionsCTE SC
+GROUP BY SC.GameName
+GO
+CREATE PROCEDURE dbo.FirstMonthSales
+AS
+SELECT G.GameName, COUNT(DISTINCT L.UserId) AS GamesSold, SUM(G.Price) AS TotalSales
+FROM dbo.[Game] G
+INNER JOIN Library L ON G.GameName = L.GameName
+WHERE L.PurchasedDate <= DATEADD(MONTH, 1, G.ReleaseDate)
+GROUP BY G.GameName
+GO
+CREATE PROCEDURE dbo.ActiveUsers
+ @FirstDate DATETIMEOFFSET, @LastDate DATETIMEOFFSET
+AS
+SELECT COUNT(*) AS ActiveUsers
+FROM dbo.[USER] U
+WHERE LastActiveDate BETWEEN @FirstDate AND @LastDate
+GO
+CREATE PROCEDURE dbo.BestDayOFSales
+AS
+SELECT Day(L.PurchasedDate) AS PurchasedDate, COUNT(L.PurchasedDate) AS GamesSold, SUM(G.Price) AS TotalSales, 
+RANK() OVER(ORDER BY SUM(G.Price) DESC) AS SalesRanking
+FROM dbo.Game G
+INNER JOIN Library L ON G.GameName = L.GameName
+WHERE MONTH(L.PurchasedDate) = MONTH(GETDATE())
+GROUP BY Day(L.PurchasedDate)

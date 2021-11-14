@@ -16,4 +16,16 @@ namespace GameStoreDatabaseProject.Models
         public bool IsRemoved { get; set; }
 
     }
+    public class FirstMonthSales
+    {
+        public string GameName { get; set; }
+        public int GamesSold { get; set; }
+        public int TotalSales { get; set; }
+    }
+    public class BestDayOFSales
+    {
+        public int PurchasedDate { get; set; }
+        public int GamesSold { get; set; }
+        public int TotalSales { get; set; }
+    }
 }

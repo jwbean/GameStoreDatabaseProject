@@ -15,4 +15,9 @@ namespace GameStoreDatabaseProject.Models
         public DateTimeOffset SessionEndTime { get; set; }
 
     }
+    public class AverageHours
+    {
+        public string GameName { get; set; }
+        public int AverageHoursPlayed { get; set; }
+    }
 }
