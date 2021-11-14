@@ -17,6 +17,38 @@ namespace GameStoreDatabaseProject
                 return output;
             }
         }
+        public List<Models.Review> GetReviews(string gameName)
+        {
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(Connection.CnnVal("Database")))
+            {
+                var output = connection.Query<Models.Review>("dbo.RetrieveReviews @GameName", new { GameName = gameName }).ToList();
+                return output;
+            }
+        }
+        public List<Models.Review> GetReviewsHigh(string gameName)
+        {
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(Connection.CnnVal("Database")))
+            {
+                var output = connection.Query<Models.Review>("dbo.RetrieveReviewsHighScore @GameName", new { GameName = gameName }).ToList();
+                return output;
+            }
+        }
+        public List<Models.Review> GetReviewsLow(string gameName)
+        {
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(Connection.CnnVal("Database")))
+            {
+                var output = connection.Query<Models.Review>("dbo.RetrieveReviewsLowScore @GameName", new { GameName = gameName }).ToList();
+                return output;
+            }
+        }
+        public List<Models.Review> GetReviewsRecent(string gameName)
+        {
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(Connection.CnnVal("Database")))
+            {
+                var output = connection.Query<Models.Review>("dbo.RetrieveReviewsRecent @GameName", new { GameName = gameName }).ToList();
+                return output;
+            }
+        }
         public List<Models.User> AllUsers()
         {
             using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(Connection.CnnVal("Database")))
@@ -33,6 +65,16 @@ namespace GameStoreDatabaseProject
                 user.Add(new Models.User { UserName = userName, LastName = lastName, FirstName = fristName, DateJoined = DateTimeOffset.Now, LastActiveDate = DateTimeOffset.Now,IsRemoved=true });
                 connection.Execute("dbo.CreateUser @UserName, @FirstName, @LastName, @DateJoined, @LastActiveDate, @IsRemoved", user);
                 
+            }
+        }
+        public void CreateReview(int userId, string gameName, string description, int score)
+        {
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(Connection.CnnVal("Database")))
+            {
+                List<Models.Review> review = new List<Models.Review>();
+                review.Add(new Models.Review { UserId = userId, GameName = gameName, Description = description, FiveStarScore = score, DateAdded = DateTimeOffset.Now});
+                connection.Execute("dbo.CreateReview @UserId, @GameName, @Description, @FiveStarScore, @DateAdded", review);
+
             }
         }
     }

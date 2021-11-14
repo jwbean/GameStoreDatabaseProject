@@ -17,6 +17,7 @@ namespace GameStoreDatabaseProject
         List<Models.Library> libraryGames;
         List<Models.Genre> genres;
         List<Models.Developer> developers;
+        List<Models.Review> reviews;
         public Client()
         {
             InitializeComponent();
@@ -59,6 +60,13 @@ namespace GameStoreDatabaseProject
             Genre.Text = game.GenreName;
             ReleaseDate.Text = (game.ReleaseDate).ToString();
             Price.Text = (game.Price).ToString();
+            UserAccess userAcess = new UserAccess();
+            reviews = userAcess.GetReviews(game.GameName);
+            ReviewBox.Items.Clear();
+            foreach (var review in reviews)
+            {
+                ReviewBox.Items.Add((review.FiveStarScore).ToString() + ": "+review.Description);
+            }
         }
 
         private void UserList_SelectedIndexChanged(object sender, EventArgs e)
@@ -201,6 +209,71 @@ namespace GameStoreDatabaseProject
             {
                 GameBox.Items.Add(game.GameName);
             }
+        }
+
+        private void Review_Submit_Click(object sender, EventArgs e)
+        {
+            string userName = UserList.Text;
+            foreach (var user in listOfUsers)
+            {
+                if (String.Compare(user.UserName, userName) == 0)
+                {
+                    UserAccess userAccess = new UserAccess();
+                    userAccess.CreateReview(user.UserId, LibraryBox.Text, ReviewDescription.Text,Int32.Parse(RatingScore.Text));
+                    UserList_SelectedIndexChanged(sender, e);
+                }
+            }
+        }
+
+        private void HighScore_CheckedChanged(object sender, EventArgs e)
+        {
+            if (HighScore.Checked)
+            {
+                ReviewBox.Items.Clear();
+                LowScore.Checked = false;
+                Recent.Checked = false;
+                UserAccess userAccess = new UserAccess();
+                reviews = userAccess.GetReviewsHigh(GameBox.Text);
+                foreach (var review in reviews)
+                {
+                    ReviewBox.Items.Add((review.FiveStarScore).ToString() + ": " + review.Description);
+                }
+            }
+            
+        }
+
+        private void LowScore_CheckedChanged(object sender, EventArgs e)
+        {
+            if (LowScore.Checked)
+            {
+                ReviewBox.Items.Clear();
+                HighScore.Checked = false;
+                Recent.Checked = false;
+                UserAccess userAccess = new UserAccess();
+                reviews = userAccess.GetReviewsLow(GameBox.Text);
+                foreach (var review in reviews)
+                {
+                    ReviewBox.Items.Add((review.FiveStarScore).ToString() + ": " + review.Description);
+                }
+            }
+            
+        }
+
+        private void Recent_CheckedChanged(object sender, EventArgs e)
+        {
+            if (Recent.Checked)
+            {
+                ReviewBox.Items.Clear();
+                LowScore.Checked = false;
+                HighScore.Checked = false;
+                UserAccess userAccess = new UserAccess();
+                reviews = userAccess.GetReviewsRecent(GameBox.Text);
+                foreach (var review in reviews)
+                {
+                    ReviewBox.Items.Add((review.FiveStarScore).ToString() + ": " + review.Description);
+                }
+            }
+            
         }
     }
 }

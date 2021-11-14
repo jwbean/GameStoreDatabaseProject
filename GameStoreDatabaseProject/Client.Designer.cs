@@ -35,7 +35,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.RatingTrackBar = new System.Windows.Forms.TrackBar();
             this.RatingScore = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -62,6 +61,14 @@
             this.GameNameSearch = new System.Windows.Forms.TextBox();
             this.label15 = new System.Windows.Forms.Label();
             this.Name_Search = new System.Windows.Forms.Button();
+            this.ReviewBox = new System.Windows.Forms.ListBox();
+            this.label16 = new System.Windows.Forms.Label();
+            this.RatingTrackBar = new System.Windows.Forms.TrackBar();
+            this.Review_Submit = new System.Windows.Forms.Button();
+            this.Recent = new System.Windows.Forms.CheckBox();
+            this.label17 = new System.Windows.Forms.Label();
+            this.HighScore = new System.Windows.Forms.CheckBox();
+            this.LowScore = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.RatingTrackBar)).BeginInit();
             this.SuspendLayout();
             // 
@@ -137,31 +144,19 @@
             this.label4.TabIndex = 6;
             this.label4.Text = "Five Star Rating:";
             // 
-            // RatingTrackBar
-            // 
-            this.RatingTrackBar.LargeChange = 10;
-            this.RatingTrackBar.Location = new System.Drawing.Point(801, 240);
-            this.RatingTrackBar.Margin = new System.Windows.Forms.Padding(4);
-            this.RatingTrackBar.Maximum = 50;
-            this.RatingTrackBar.Name = "RatingTrackBar";
-            this.RatingTrackBar.Size = new System.Drawing.Size(139, 56);
-            this.RatingTrackBar.TabIndex = 7;
-            this.RatingTrackBar.Value = 25;
-            this.RatingTrackBar.Scroll += new System.EventHandler(this.RatingTrackBar_Scroll);
-            // 
             // RatingScore
             // 
-            this.RatingScore.Location = new System.Drawing.Point(889, 208);
+            this.RatingScore.Location = new System.Drawing.Point(1094, 169);
             this.RatingScore.Margin = new System.Windows.Forms.Padding(4);
             this.RatingScore.Name = "RatingScore";
             this.RatingScore.Size = new System.Drawing.Size(49, 22);
             this.RatingScore.TabIndex = 8;
-            this.RatingScore.Text = "2.5";
+            this.RatingScore.Text = "3";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(775, 212);
+            this.label5.Location = new System.Drawing.Point(968, 174);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(105, 17);
@@ -172,7 +167,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(779, 158);
+            this.label6.Location = new System.Drawing.Point(1018, 132);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(112, 17);
@@ -181,11 +176,11 @@
             // 
             // ReviewDescription
             // 
-            this.ReviewDescription.Location = new System.Drawing.Point(776, 311);
+            this.ReviewDescription.Location = new System.Drawing.Point(971, 251);
             this.ReviewDescription.Margin = new System.Windows.Forms.Padding(4);
             this.ReviewDescription.Multiline = true;
             this.ReviewDescription.Name = "ReviewDescription";
-            this.ReviewDescription.Size = new System.Drawing.Size(225, 24);
+            this.ReviewDescription.Size = new System.Drawing.Size(225, 74);
             this.ReviewDescription.TabIndex = 11;
             // 
             // label7
@@ -301,7 +296,7 @@
             this.label11.Location = new System.Drawing.Point(315, 360);
             this.label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(63, 21);
+            this.label11.Size = new System.Drawing.Size(50, 17);
             this.label11.TabIndex = 23;
             this.label11.Text = "Filter:";
             // 
@@ -321,7 +316,7 @@
             this.label13.Location = new System.Drawing.Point(310, 451);
             this.label13.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(0, 21);
+            this.label13.Size = new System.Drawing.Size(0, 17);
             this.label13.TabIndex = 25;
             // 
             // LessThanFive
@@ -363,7 +358,7 @@
             this.label14.Location = new System.Drawing.Point(304, 432);
             this.label14.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(96, 21);
+            this.label14.Size = new System.Drawing.Size(77, 17);
             this.label14.TabIndex = 30;
             this.label14.Text = "Developer:";
             // 
@@ -406,11 +401,104 @@
             this.Name_Search.UseVisualStyleBackColor = true;
             this.Name_Search.Click += new System.EventHandler(this.Name_Search_Click);
             // 
+            // ReviewBox
+            // 
+            this.ReviewBox.FormattingEnabled = true;
+            this.ReviewBox.ItemHeight = 16;
+            this.ReviewBox.Location = new System.Drawing.Point(625, 132);
+            this.ReviewBox.Margin = new System.Windows.Forms.Padding(4);
+            this.ReviewBox.Name = "ReviewBox";
+            this.ReviewBox.Size = new System.Drawing.Size(278, 404);
+            this.ReviewBox.TabIndex = 34;
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label16.Location = new System.Drawing.Point(642, 85);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(105, 29);
+            this.label16.TabIndex = 35;
+            this.label16.Text = "Reviews";
+            // 
+            // RatingTrackBar
+            // 
+            this.RatingTrackBar.LargeChange = 10;
+            this.RatingTrackBar.Location = new System.Drawing.Point(1004, 205);
+            this.RatingTrackBar.Margin = new System.Windows.Forms.Padding(4);
+            this.RatingTrackBar.Maximum = 50;
+            this.RatingTrackBar.Name = "RatingTrackBar";
+            this.RatingTrackBar.Size = new System.Drawing.Size(139, 56);
+            this.RatingTrackBar.TabIndex = 7;
+            this.RatingTrackBar.Value = 25;
+            this.RatingTrackBar.Scroll += new System.EventHandler(this.RatingTrackBar_Scroll);
+            // 
+            // Review_Submit
+            // 
+            this.Review_Submit.Location = new System.Drawing.Point(1121, 332);
+            this.Review_Submit.Name = "Review_Submit";
+            this.Review_Submit.Size = new System.Drawing.Size(75, 23);
+            this.Review_Submit.TabIndex = 36;
+            this.Review_Submit.Text = "Submit";
+            this.Review_Submit.UseVisualStyleBackColor = true;
+            this.Review_Submit.Click += new System.EventHandler(this.Review_Submit_Click);
+            // 
+            // Recent
+            // 
+            this.Recent.AutoSize = true;
+            this.Recent.Location = new System.Drawing.Point(971, 474);
+            this.Recent.Name = "Recent";
+            this.Recent.Size = new System.Drawing.Size(94, 26);
+            this.Recent.TabIndex = 37;
+            this.Recent.Text = "Recent";
+            this.Recent.UseVisualStyleBackColor = true;
+            this.Recent.CheckedChanged += new System.EventHandler(this.Recent_CheckedChanged);
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label17.Location = new System.Drawing.Point(928, 383);
+            this.label17.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(50, 17);
+            this.label17.TabIndex = 38;
+            this.label17.Text = "Filter:";
+            // 
+            // HighScore
+            // 
+            this.HighScore.AutoSize = true;
+            this.HighScore.Location = new System.Drawing.Point(971, 414);
+            this.HighScore.Name = "HighScore";
+            this.HighScore.Size = new System.Drawing.Size(101, 21);
+            this.HighScore.TabIndex = 39;
+            this.HighScore.Text = "HighToLow";
+            this.HighScore.UseVisualStyleBackColor = true;
+            this.HighScore.CheckedChanged += new System.EventHandler(this.HighScore_CheckedChanged);
+            // 
+            // LowScore
+            // 
+            this.LowScore.AutoSize = true;
+            this.LowScore.Location = new System.Drawing.Point(971, 447);
+            this.LowScore.Name = "LowScore";
+            this.LowScore.Size = new System.Drawing.Size(101, 21);
+            this.LowScore.TabIndex = 40;
+            this.LowScore.Text = "LowToHigh";
+            this.LowScore.UseVisualStyleBackColor = true;
+            this.LowScore.CheckedChanged += new System.EventHandler(this.LowScore_CheckedChanged);
+            // 
             // Client
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1580, 753);
+            this.Controls.Add(this.LowScore);
+            this.Controls.Add(this.HighScore);
+            this.Controls.Add(this.label17);
+            this.Controls.Add(this.Recent);
+            this.Controls.Add(this.Review_Submit);
+            this.Controls.Add(this.label16);
+            this.Controls.Add(this.ReviewBox);
             this.Controls.Add(this.Name_Search);
             this.Controls.Add(this.label15);
             this.Controls.Add(this.GameNameSearch);
@@ -463,7 +551,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TrackBar RatingTrackBar;
         private System.Windows.Forms.TextBox RatingScore;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
@@ -490,6 +577,14 @@
         private System.Windows.Forms.TextBox GameNameSearch;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Button Name_Search;
+        private System.Windows.Forms.ListBox ReviewBox;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.TrackBar RatingTrackBar;
+        private System.Windows.Forms.Button Review_Submit;
+        private System.Windows.Forms.CheckBox Recent;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.CheckBox HighScore;
+        private System.Windows.Forms.CheckBox LowScore;
     }
 }
 
