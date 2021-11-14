@@ -275,5 +275,19 @@ namespace GameStoreDatabaseProject
             }
             
         }
+
+        private void Hours_Played_Button_Click(object sender, EventArgs e)
+        {
+            string userName = UserList.Text;
+            foreach (var user in listOfUsers)
+            {
+                if (String.Compare(user.UserName, userName) == 0)
+                {
+                    UserAccess userAccess = new UserAccess();
+                    userAccess.CreateSession(user.UserId, LibraryBox.Text, Int32.Parse(Hours.Text));
+                    UserList_SelectedIndexChanged(sender, e);
+                }
+            }
+        }
     }
 }

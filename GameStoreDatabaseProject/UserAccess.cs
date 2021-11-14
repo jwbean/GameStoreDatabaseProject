@@ -77,5 +77,16 @@ namespace GameStoreDatabaseProject
 
             }
         }
+        public void CreateSession(int userId, string gameName, int hours)
+        {
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(Connection.CnnVal("Database")))
+            {
+                List<Models.Session> session = new List<Models.Session>();
+                session.Add(new Models.Session { UserId = userId, GameName = gameName, SessionStartTime = DateTimeOffset.Now, SessionEndTime = DateTimeOffset.Now.AddHours(hours) });
+                connection.Execute("dbo.CreateSession @UserId,@GameName, @SessionStartTime, @SessionEndTime", session);
+
+            }
+        }
+
     }
 }

@@ -69,6 +69,9 @@
             this.label17 = new System.Windows.Forms.Label();
             this.HighScore = new System.Windows.Forms.CheckBox();
             this.LowScore = new System.Windows.Forms.CheckBox();
+            this.label18 = new System.Windows.Forms.Label();
+            this.Hours = new System.Windows.Forms.TextBox();
+            this.Hours_Played_Button = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.RatingTrackBar)).BeginInit();
             this.SuspendLayout();
             // 
@@ -448,7 +451,7 @@
             this.Recent.AutoSize = true;
             this.Recent.Location = new System.Drawing.Point(971, 474);
             this.Recent.Name = "Recent";
-            this.Recent.Size = new System.Drawing.Size(94, 26);
+            this.Recent.Size = new System.Drawing.Size(75, 21);
             this.Recent.TabIndex = 37;
             this.Recent.Text = "Recent";
             this.Recent.UseVisualStyleBackColor = true;
@@ -487,11 +490,43 @@
             this.LowScore.UseVisualStyleBackColor = true;
             this.LowScore.CheckedChanged += new System.EventHandler(this.LowScore_CheckedChanged);
             // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(1245, 570);
+            this.label18.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(121, 21);
+            this.label18.TabIndex = 41;
+            this.label18.Text = "Hours Played:";
+            // 
+            // Hours
+            // 
+            this.Hours.Location = new System.Drawing.Point(1352, 569);
+            this.Hours.Margin = new System.Windows.Forms.Padding(4);
+            this.Hours.Name = "Hours";
+            this.Hours.Size = new System.Drawing.Size(49, 22);
+            this.Hours.TabIndex = 42;
+            this.Hours.Text = "3";
+            // 
+            // Hours_Played_Button
+            // 
+            this.Hours_Played_Button.Location = new System.Drawing.Point(1326, 613);
+            this.Hours_Played_Button.Name = "Hours_Played_Button";
+            this.Hours_Played_Button.Size = new System.Drawing.Size(75, 23);
+            this.Hours_Played_Button.TabIndex = 43;
+            this.Hours_Played_Button.Text = "Submit";
+            this.Hours_Played_Button.UseVisualStyleBackColor = true;
+            this.Hours_Played_Button.Click += new System.EventHandler(this.Hours_Played_Button_Click);
+            // 
             // Client
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1580, 753);
+            this.ClientSize = new System.Drawing.Size(1568, 699);
+            this.Controls.Add(this.Hours_Played_Button);
+            this.Controls.Add(this.Hours);
+            this.Controls.Add(this.label18);
             this.Controls.Add(this.LowScore);
             this.Controls.Add(this.HighScore);
             this.Controls.Add(this.label17);
@@ -585,6 +620,9 @@
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.CheckBox HighScore;
         private System.Windows.Forms.CheckBox LowScore;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.TextBox Hours;
+        private System.Windows.Forms.Button Hours_Played_Button;
     }
 }
 
