@@ -115,6 +115,14 @@ FROM dbo.Review R
 WHERE R.GameName = @GameName
 Order BY R.DateAdded DESC;
 GO
+-- Here's a simple procedure fetching a single person's library
+CREATE PROCEDURE dbo.RetrieveReviewUser
+   @GameName NVARCHAR(32), @UserId INT
+AS
+SELECT R.[Description],R.FiveStarScore,R.DateAdded
+FROM dbo.Review R
+WHERE R.GameName = @GameName AND R.UserId = @UserId
+GO
 -- Here's a simple procedure fetching all games
 CREATE PROCEDURE dbo.RetrieveGames
 AS

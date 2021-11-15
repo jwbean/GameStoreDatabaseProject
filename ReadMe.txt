@@ -1,6 +1,9 @@
 The SQL tables and Procedures are in the folder Queries.
 
+Create a local database with these files I names mine CIS560.
+
 The project can be opened in Visual Studio with the GameStoreDatabaseProject.sIn file.
+
 In order to connect the project to a locally made database you need to change a line in App.config.
 
 <connectionStrings>
