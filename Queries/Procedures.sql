@@ -174,7 +174,7 @@ GO
 CREATE PROCEDURE dbo.CreateSession
    @UserId Int, @GameName NVARCHAR(32), @SessionStartTime DATETIMEOFFSET, @SessionEndTime DATETIMEOFFSET
 AS
-INSERT INTO dbo.Session(UserId,GameName,SessionStartTime,SessionEndTime)
+INSERT INTO dbo.[Session](UserId,GameName,SessionStartTime,SessionEndTime)
 Values
 	(@UserId,@GameName,@SessionStartTime,@SessionEndTime)
 GO
@@ -242,10 +242,10 @@ WHERE UserId = @UserId
 GO
 CREATE PROCEDURE dbo.NewUsers
 AS
-SELECT U.UserId, U.UserName, U.DateJoined
+SELECT COUNT(*) AS NewUsers
 FROM dbo.[User] U
 WHERE U.DateJoined > (DATEADD(MONTH, DATEDIFF(MONTH, 0, CURRENT_TIMESTAMP) - 1, 0))
-GROUP BY U.UserId, U.UserName, U.DateJoined
+
 GO
 CREATE PROCEDURE dbo.TopSpender
 AS

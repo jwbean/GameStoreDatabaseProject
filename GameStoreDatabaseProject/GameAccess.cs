@@ -120,7 +120,7 @@ namespace GameStoreDatabaseProject
             {
                 List<Models.Game> game = new List<Models.Game>();
                 game.Add(new Models.Game { GameName = gameName, DeveloperName = developerName, GenreName = genre, Price = price, ReleaseDate = DateTimeOffset.Now, IsRemoved = true });
-                connection.Execute("dbo.CreateGame @GameName, @DeveloperName, @GenreName, @Price, @ReleasedDate, @IsRemoved", game);
+                connection.Execute("dbo.CreateGame @GameName, @DeveloperName, @GenreName, @Price, @ReleaseDate, @IsRemoved", game);
 
             }
         }

@@ -121,6 +121,15 @@ namespace GameStoreDatabaseProject
 
             }
         }
+        public List<Models.NewUser> NewUsers()
+        {
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(Connection.CnnVal("Database")))
+            {
+                var output = connection.Query<Models.NewUser>("dbo.NewUsers").ToList();
+                return output;
+
+            }
+        }
         public void UpdateLastActive(int userId)
         {
             using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(Connection.CnnVal("Database")))

@@ -20,6 +20,7 @@ namespace GameStoreDatabaseProject
         List<Models.ActiveUser> activeUsers;
         List<Models.TopSpender> topSpenders;
         List<Models.TopPlayers> topPlayers;
+        List<Models.NewUser> newUsers;
         UserAccess userAccess;
         GameAccess gameAccess;
         public Server()
@@ -51,6 +52,11 @@ namespace GameStoreDatabaseProject
             foreach (var item in activeUsers)
             {
                 ActiveUser.Text = item.ActiveUsers.ToString();
+            }
+            newUsers = userAccess.NewUsers();
+            foreach (var item in newUsers)
+            {
+                NewUsers.Text = item.NewUsers.ToString();
             }
             bestDayOFSales = gameAccess.BestDayofSales();
             foreach (var item in bestDayOFSales)

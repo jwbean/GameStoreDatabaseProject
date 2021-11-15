@@ -20,6 +20,10 @@ namespace GameStoreDatabaseProject.Models
     {
         public int ActiveUsers { get; set; }
     }
+    public class NewUser
+    {
+        public int NewUsers { get; set; }
+    }
     public class TopSpender
     {
         public string UserName { get; set; }
