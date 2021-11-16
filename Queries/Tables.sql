@@ -128,7 +128,7 @@ VALUES
 INSERT INTO dbo.[Session](UserId,GameName,SessionStartTime,SessionEndTime)
 VALUES
 	(1,N'Blockstar','2019-12-02 18:47:43','2019-12-02 20:47:43'),
-	(1,N'Presidential','2019-07-27 08:10:05','2019-07-27 06:10:05'),
+	(1,N'Presidential','2019-07-27 08:10:05','2019-07-27 10:10:05'),
 	(1,N'Unpleasant Tennis','2021-03-15 21:22:54','2021-03-15 22:22:54'),
 	(2,N'Blood Carnage','2021-09-29 11:19:20','2021-09-29 18:19:20'),
 	(2,N'Geofight','2019-12-22 11:18:50','2019-12-22 15:18:50'),

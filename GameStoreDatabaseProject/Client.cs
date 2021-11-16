@@ -51,7 +51,7 @@ namespace GameStoreDatabaseProject
         private void RatingTrackBar_Scroll(object sender, System.EventArgs e)
         {
             // Display the trackbar value in the text box.
-            RatingScore.Text = "" + ((double)RatingTrackBar.Value / 10);
+            RatingScore.Text = "" + RatingTrackBar.Value;
         }
 
 
@@ -66,7 +66,7 @@ namespace GameStoreDatabaseProject
             ReviewBox.Items.Clear();
             foreach (var review in reviews)
             {
-                ReviewBox.Items.Add((review.FiveStarScore).ToString() + ": "+review.Description);
+                ReviewBox.Items.Add((review.FiveStarScore).ToString() + " Stars: "+review.Description);
             }
         }
 

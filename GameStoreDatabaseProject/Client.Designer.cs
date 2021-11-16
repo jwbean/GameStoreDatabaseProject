@@ -79,21 +79,18 @@
             // UserList
             // 
             this.UserList.FormattingEnabled = true;
-            this.UserList.Location = new System.Drawing.Point(1365, 22);
-            this.UserList.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.UserList.Location = new System.Drawing.Point(1024, 18);
             this.UserList.Name = "UserList";
-            this.UserList.Size = new System.Drawing.Size(160, 24);
+            this.UserList.Size = new System.Drawing.Size(121, 21);
             this.UserList.TabIndex = 0;
             this.UserList.SelectedIndexChanged += new System.EventHandler(this.UserList_SelectedIndexChanged);
             // 
             // GameBox
             // 
             this.GameBox.FormattingEnabled = true;
-            this.GameBox.ItemHeight = 16;
-            this.GameBox.Location = new System.Drawing.Point(13, 98);
-            this.GameBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.GameBox.Location = new System.Drawing.Point(10, 80);
             this.GameBox.Name = "GameBox";
-            this.GameBox.Size = new System.Drawing.Size(279, 404);
+            this.GameBox.Size = new System.Drawing.Size(210, 329);
             this.GameBox.TabIndex = 1;
             this.GameBox.SelectedIndexChanged += new System.EventHandler(this.GameBox_SelectedIndexChanged);
             // 
@@ -101,59 +98,53 @@
             // 
             this.GameDetails.AutoSize = true;
             this.GameDetails.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.GameDetails.Location = new System.Drawing.Point(315, 106);
-            this.GameDetails.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.GameDetails.Location = new System.Drawing.Point(236, 86);
             this.GameDetails.Name = "GameDetails";
-            this.GameDetails.Size = new System.Drawing.Size(110, 17);
+            this.GameDetails.Size = new System.Drawing.Size(86, 13);
             this.GameDetails.TabIndex = 2;
             this.GameDetails.Text = "Game Details:";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(312, 256);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Location = new System.Drawing.Point(234, 208);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(44, 17);
+            this.label1.Size = new System.Drawing.Size(34, 13);
             this.label1.TabIndex = 3;
             this.label1.Text = "Price:";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(315, 146);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Location = new System.Drawing.Point(236, 119);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(81, 17);
+            this.label2.Size = new System.Drawing.Size(62, 13);
             this.label2.TabIndex = 4;
             this.label2.Text = "Developer: ";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(312, 218);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label3.Location = new System.Drawing.Point(234, 177);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(98, 17);
+            this.label3.Size = new System.Drawing.Size(75, 13);
             this.label3.TabIndex = 5;
             this.label3.Text = "Release Date:";
             // 
             // RatingScore
             // 
-            this.RatingScore.Location = new System.Drawing.Point(1136, 147);
-            this.RatingScore.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.RatingScore.Location = new System.Drawing.Point(852, 119);
             this.RatingScore.Name = "RatingScore";
-            this.RatingScore.Size = new System.Drawing.Size(49, 22);
+            this.RatingScore.Size = new System.Drawing.Size(38, 20);
             this.RatingScore.TabIndex = 8;
             this.RatingScore.Text = "3";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(1011, 152);
-            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label5.Location = new System.Drawing.Point(758, 124);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(105, 17);
+            this.label5.Size = new System.Drawing.Size(80, 13);
             this.label5.TabIndex = 9;
             this.label5.Text = "Rating out of 5:";
             // 
@@ -161,29 +152,26 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(1062, 110);
-            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label6.Location = new System.Drawing.Point(796, 89);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(112, 17);
+            this.label6.Size = new System.Drawing.Size(90, 13);
             this.label6.TabIndex = 10;
             this.label6.Text = "Create Review";
             // 
             // ReviewDescription
             // 
-            this.ReviewDescription.Location = new System.Drawing.Point(1014, 229);
-            this.ReviewDescription.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.ReviewDescription.Location = new System.Drawing.Point(760, 186);
             this.ReviewDescription.Multiline = true;
             this.ReviewDescription.Name = "ReviewDescription";
-            this.ReviewDescription.Size = new System.Drawing.Size(225, 74);
+            this.ReviewDescription.Size = new System.Drawing.Size(170, 61);
             this.ReviewDescription.TabIndex = 11;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(312, 182);
-            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label7.Location = new System.Drawing.Point(234, 148);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(52, 17);
+            this.label7.Size = new System.Drawing.Size(39, 13);
             this.label7.TabIndex = 12;
             this.label7.Text = "Genre:";
             // 
@@ -191,55 +179,55 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(105, 64);
+            this.label8.Location = new System.Drawing.Point(79, 52);
+            this.label8.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(71, 29);
+            this.label8.Size = new System.Drawing.Size(54, 24);
             this.label8.TabIndex = 13;
             this.label8.Text = "Store";
             // 
             // Developer
             // 
             this.Developer.AutoSize = true;
-            this.Developer.Location = new System.Drawing.Point(403, 146);
+            this.Developer.Location = new System.Drawing.Point(302, 119);
+            this.Developer.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.Developer.Name = "Developer";
-            this.Developer.Size = new System.Drawing.Size(71, 17);
+            this.Developer.Size = new System.Drawing.Size(0, 13);
             this.Developer.TabIndex = 14;
-            this.Developer.Text = "developer";
             // 
             // Genre
             // 
             this.Genre.AutoSize = true;
-            this.Genre.Location = new System.Drawing.Point(377, 182);
+            this.Genre.Location = new System.Drawing.Point(283, 148);
+            this.Genre.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.Genre.Name = "Genre";
-            this.Genre.Size = new System.Drawing.Size(45, 17);
+            this.Genre.Size = new System.Drawing.Size(0, 13);
             this.Genre.TabIndex = 15;
-            this.Genre.Text = "genre";
             // 
             // ReleaseDate
             // 
             this.ReleaseDate.AutoSize = true;
-            this.ReleaseDate.Location = new System.Drawing.Point(416, 218);
+            this.ReleaseDate.Location = new System.Drawing.Point(312, 177);
+            this.ReleaseDate.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.ReleaseDate.Name = "ReleaseDate";
-            this.ReleaseDate.Size = new System.Drawing.Size(36, 17);
+            this.ReleaseDate.Size = new System.Drawing.Size(0, 13);
             this.ReleaseDate.TabIndex = 16;
-            this.ReleaseDate.Text = "date";
             // 
             // Price
             // 
             this.Price.AutoSize = true;
-            this.Price.Location = new System.Drawing.Point(373, 256);
+            this.Price.Location = new System.Drawing.Point(280, 208);
+            this.Price.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.Price.Name = "Price";
-            this.Price.Size = new System.Drawing.Size(39, 17);
+            this.Price.Size = new System.Drawing.Size(0, 13);
             this.Price.TabIndex = 17;
-            this.Price.Text = "price";
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(1291, 25);
-            this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label9.Location = new System.Drawing.Point(968, 20);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(46, 17);
+            this.label9.Size = new System.Drawing.Size(35, 13);
             this.label9.TabIndex = 18;
             this.label9.Text = "User: ";
             // 
@@ -247,28 +235,27 @@
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(1347, 64);
+            this.label10.Location = new System.Drawing.Point(1010, 52);
+            this.label10.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(86, 29);
+            this.label10.Size = new System.Drawing.Size(66, 24);
             this.label10.TabIndex = 19;
             this.label10.Text = "Library";
             // 
             // LibraryBox
             // 
             this.LibraryBox.FormattingEnabled = true;
-            this.LibraryBox.ItemHeight = 16;
-            this.LibraryBox.Location = new System.Drawing.Point(1249, 106);
-            this.LibraryBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.LibraryBox.Location = new System.Drawing.Point(937, 86);
             this.LibraryBox.Name = "LibraryBox";
-            this.LibraryBox.Size = new System.Drawing.Size(276, 308);
+            this.LibraryBox.Size = new System.Drawing.Size(208, 251);
             this.LibraryBox.TabIndex = 20;
             // 
             // Buy_Button
             // 
-            this.Buy_Button.Location = new System.Drawing.Point(205, 517);
-            this.Buy_Button.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Buy_Button.Location = new System.Drawing.Point(154, 420);
+            this.Buy_Button.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Buy_Button.Name = "Buy_Button";
-            this.Buy_Button.Size = new System.Drawing.Size(75, 23);
+            this.Buy_Button.Size = new System.Drawing.Size(56, 30);
             this.Buy_Button.TabIndex = 21;
             this.Buy_Button.Text = "Buy";
             this.Buy_Button.UseVisualStyleBackColor = true;
@@ -277,10 +264,9 @@
             // GenreBox
             // 
             this.GenreBox.FormattingEnabled = true;
-            this.GenreBox.Location = new System.Drawing.Point(406, 332);
-            this.GenreBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.GenreBox.Location = new System.Drawing.Point(304, 270);
             this.GenreBox.Name = "GenreBox";
-            this.GenreBox.Size = new System.Drawing.Size(160, 24);
+            this.GenreBox.Size = new System.Drawing.Size(121, 21);
             this.GenreBox.TabIndex = 22;
             this.GenreBox.SelectedIndexChanged += new System.EventHandler(this.GenreBox_SelectedIndexChanged);
             // 
@@ -288,113 +274,106 @@
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(315, 296);
-            this.label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label11.Location = new System.Drawing.Point(236, 240);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(50, 17);
+            this.label11.Size = new System.Drawing.Size(39, 13);
             this.label11.TabIndex = 23;
             this.label11.Text = "Filter:";
             // 
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(312, 332);
-            this.label12.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label12.Location = new System.Drawing.Point(234, 270);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(52, 17);
+            this.label12.Size = new System.Drawing.Size(39, 13);
             this.label12.TabIndex = 24;
             this.label12.Text = "Genre:";
             // 
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(334, 297);
-            this.label13.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label13.Location = new System.Drawing.Point(250, 241);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(0, 17);
+            this.label13.Size = new System.Drawing.Size(0, 13);
             this.label13.TabIndex = 25;
             // 
             // LessThanFive
             // 
             this.LessThanFive.AutoSize = true;
-            this.LessThanFive.Location = new System.Drawing.Point(406, 395);
-            this.LessThanFive.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.LessThanFive.Location = new System.Drawing.Point(304, 321);
+            this.LessThanFive.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.LessThanFive.Name = "LessThanFive";
-            this.LessThanFive.Size = new System.Drawing.Size(46, 21);
+            this.LessThanFive.Size = new System.Drawing.Size(47, 17);
             this.LessThanFive.TabIndex = 26;
-            this.LessThanFive.Text = "5<";
+            this.LessThanFive.Text = "< $5";
             this.LessThanFive.UseVisualStyleBackColor = true;
             this.LessThanFive.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
             // 
             // High2Low
             // 
             this.High2Low.AutoSize = true;
-            this.High2Low.Location = new System.Drawing.Point(406, 422);
-            this.High2Low.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.High2Low.Location = new System.Drawing.Point(304, 343);
+            this.High2Low.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.High2Low.Name = "High2Low";
-            this.High2Low.Size = new System.Drawing.Size(101, 21);
+            this.High2Low.Size = new System.Drawing.Size(108, 17);
             this.High2Low.TabIndex = 27;
-            this.High2Low.Text = "HighToLow";
+            this.High2Low.Text = "Price HighToLow";
             this.High2Low.UseVisualStyleBackColor = true;
             this.High2Low.CheckedChanged += new System.EventHandler(this.High2Low_CheckedChanged);
             // 
             // Low2High
             // 
             this.Low2High.AutoSize = true;
-            this.Low2High.Location = new System.Drawing.Point(406, 447);
-            this.Low2High.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Low2High.Location = new System.Drawing.Point(304, 363);
+            this.Low2High.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Low2High.Name = "Low2High";
-            this.Low2High.Size = new System.Drawing.Size(101, 21);
+            this.Low2High.Size = new System.Drawing.Size(108, 17);
             this.Low2High.TabIndex = 28;
-            this.Low2High.Text = "LowToHigh";
+            this.Low2High.Text = "Price LowToHigh";
             this.Low2High.UseVisualStyleBackColor = true;
             this.Low2High.CheckedChanged += new System.EventHandler(this.Low2High_CheckedChanged);
             // 
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(312, 361);
-            this.label14.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label14.Location = new System.Drawing.Point(234, 293);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(77, 17);
+            this.label14.Size = new System.Drawing.Size(59, 13);
             this.label14.TabIndex = 30;
             this.label14.Text = "Developer:";
             // 
             // DeveloperList
             // 
             this.DeveloperList.FormattingEnabled = true;
-            this.DeveloperList.Location = new System.Drawing.Point(406, 361);
-            this.DeveloperList.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.DeveloperList.Location = new System.Drawing.Point(304, 293);
             this.DeveloperList.Name = "DeveloperList";
-            this.DeveloperList.Size = new System.Drawing.Size(160, 24);
+            this.DeveloperList.Size = new System.Drawing.Size(121, 21);
             this.DeveloperList.TabIndex = 29;
             this.DeveloperList.SelectedIndexChanged += new System.EventHandler(this.DeveloperList_SelectedIndexChanged);
             // 
             // GameNameSearch
             // 
-            this.GameNameSearch.Location = new System.Drawing.Point(406, 503);
-            this.GameNameSearch.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.GameNameSearch.Location = new System.Drawing.Point(304, 409);
             this.GameNameSearch.Multiline = true;
             this.GameNameSearch.Name = "GameNameSearch";
-            this.GameNameSearch.Size = new System.Drawing.Size(160, 24);
+            this.GameNameSearch.Size = new System.Drawing.Size(121, 20);
             this.GameNameSearch.TabIndex = 31;
             // 
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(312, 503);
-            this.label15.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label15.Location = new System.Drawing.Point(234, 409);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(49, 17);
+            this.label15.Size = new System.Drawing.Size(38, 13);
             this.label15.TabIndex = 32;
             this.label15.Text = "Name:";
             // 
             // Name_Search
             // 
-            this.Name_Search.Location = new System.Drawing.Point(406, 542);
-            this.Name_Search.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Name_Search.Location = new System.Drawing.Point(304, 440);
+            this.Name_Search.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name_Search.Name = "Name_Search";
-            this.Name_Search.Size = new System.Drawing.Size(75, 23);
+            this.Name_Search.Size = new System.Drawing.Size(56, 19);
             this.Name_Search.TabIndex = 33;
             this.Name_Search.Text = "Search";
             this.Name_Search.UseVisualStyleBackColor = true;
@@ -403,31 +382,28 @@
             // ReviewBox
             // 
             this.ReviewBox.FormattingEnabled = true;
-            this.ReviewBox.ItemHeight = 16;
-            this.ReviewBox.Location = new System.Drawing.Point(627, 106);
-            this.ReviewBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.ReviewBox.Location = new System.Drawing.Point(470, 86);
             this.ReviewBox.Name = "ReviewBox";
-            this.ReviewBox.Size = new System.Drawing.Size(255, 196);
+            this.ReviewBox.Size = new System.Drawing.Size(192, 160);
             this.ReviewBox.TabIndex = 34;
             // 
             // RatingTrackBar
             // 
-            this.RatingTrackBar.LargeChange = 10;
-            this.RatingTrackBar.Location = new System.Drawing.Point(1047, 184);
-            this.RatingTrackBar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.RatingTrackBar.Maximum = 50;
+            this.RatingTrackBar.LargeChange = 1;
+            this.RatingTrackBar.Location = new System.Drawing.Point(785, 150);
+            this.RatingTrackBar.Maximum = 5;
             this.RatingTrackBar.Name = "RatingTrackBar";
-            this.RatingTrackBar.Size = new System.Drawing.Size(139, 56);
+            this.RatingTrackBar.Size = new System.Drawing.Size(104, 45);
             this.RatingTrackBar.TabIndex = 7;
-            this.RatingTrackBar.Value = 25;
+            this.RatingTrackBar.Value = 3;
             this.RatingTrackBar.Scroll += new System.EventHandler(this.RatingTrackBar_Scroll);
             // 
             // Review_Submit
             // 
-            this.Review_Submit.Location = new System.Drawing.Point(1164, 310);
-            this.Review_Submit.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Review_Submit.Location = new System.Drawing.Point(873, 252);
+            this.Review_Submit.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Review_Submit.Name = "Review_Submit";
-            this.Review_Submit.Size = new System.Drawing.Size(75, 23);
+            this.Review_Submit.Size = new System.Drawing.Size(56, 19);
             this.Review_Submit.TabIndex = 36;
             this.Review_Submit.Text = "Submit";
             this.Review_Submit.UseVisualStyleBackColor = true;
@@ -436,12 +412,12 @@
             // Recent
             // 
             this.Recent.AutoSize = true;
-            this.Recent.Location = new System.Drawing.Point(667, 412);
-            this.Recent.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Recent.Location = new System.Drawing.Point(500, 335);
+            this.Recent.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Recent.Name = "Recent";
-            this.Recent.Size = new System.Drawing.Size(75, 21);
+            this.Recent.Size = new System.Drawing.Size(87, 17);
             this.Recent.TabIndex = 37;
-            this.Recent.Text = "Recent";
+            this.Recent.Text = "Most Recent";
             this.Recent.UseVisualStyleBackColor = true;
             this.Recent.CheckedChanged += new System.EventHandler(this.Recent_CheckedChanged);
             // 
@@ -449,62 +425,59 @@
             // 
             this.label17.AutoSize = true;
             this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label17.Location = new System.Drawing.Point(624, 331);
-            this.label17.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label17.Location = new System.Drawing.Point(468, 269);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(50, 17);
+            this.label17.Size = new System.Drawing.Size(39, 13);
             this.label17.TabIndex = 38;
             this.label17.Text = "Filter:";
             // 
             // HighScore
             // 
             this.HighScore.AutoSize = true;
-            this.HighScore.Location = new System.Drawing.Point(667, 362);
-            this.HighScore.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.HighScore.Location = new System.Drawing.Point(500, 294);
+            this.HighScore.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.HighScore.Name = "HighScore";
-            this.HighScore.Size = new System.Drawing.Size(101, 21);
+            this.HighScore.Size = new System.Drawing.Size(117, 17);
             this.HighScore.TabIndex = 39;
-            this.HighScore.Text = "HighToLow";
+            this.HighScore.Text = "HighToLow Scores";
             this.HighScore.UseVisualStyleBackColor = true;
             this.HighScore.CheckedChanged += new System.EventHandler(this.HighScore_CheckedChanged);
             // 
             // LowScore
             // 
             this.LowScore.AutoSize = true;
-            this.LowScore.Location = new System.Drawing.Point(667, 387);
-            this.LowScore.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.LowScore.Location = new System.Drawing.Point(500, 314);
+            this.LowScore.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.LowScore.Name = "LowScore";
-            this.LowScore.Size = new System.Drawing.Size(101, 21);
+            this.LowScore.Size = new System.Drawing.Size(117, 17);
             this.LowScore.TabIndex = 40;
-            this.LowScore.Text = "LowToHigh";
+            this.LowScore.Text = "LowToHigh Scores";
             this.LowScore.UseVisualStyleBackColor = true;
             this.LowScore.CheckedChanged += new System.EventHandler(this.LowScore_CheckedChanged);
             // 
             // label18
             // 
             this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(1258, 446);
-            this.label18.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label18.Location = new System.Drawing.Point(944, 362);
             this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(97, 17);
+            this.label18.Size = new System.Drawing.Size(73, 13);
             this.label18.TabIndex = 41;
             this.label18.Text = "Hours Played:";
             // 
             // Hours
             // 
-            this.Hours.Location = new System.Drawing.Point(1365, 445);
-            this.Hours.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Hours.Location = new System.Drawing.Point(1024, 362);
             this.Hours.Name = "Hours";
-            this.Hours.Size = new System.Drawing.Size(49, 22);
+            this.Hours.Size = new System.Drawing.Size(38, 20);
             this.Hours.TabIndex = 42;
             this.Hours.Text = "3";
             // 
             // Hours_Played_Button
             // 
-            this.Hours_Played_Button.Location = new System.Drawing.Point(1338, 489);
-            this.Hours_Played_Button.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Hours_Played_Button.Location = new System.Drawing.Point(1004, 397);
+            this.Hours_Played_Button.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Hours_Played_Button.Name = "Hours_Played_Button";
-            this.Hours_Played_Button.Size = new System.Drawing.Size(75, 23);
+            this.Hours_Played_Button.Size = new System.Drawing.Size(56, 19);
             this.Hours_Played_Button.TabIndex = 43;
             this.Hours_Played_Button.Text = "Submit";
             this.Hours_Played_Button.UseVisualStyleBackColor = true;
@@ -514,32 +487,31 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(504, 106);
-            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label4.Location = new System.Drawing.Point(378, 86);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(90, 21);
+            this.label4.Size = new System.Drawing.Size(59, 13);
             this.label4.TabIndex = 44;
             this.label4.Text = "Reviews:";
             // 
             // FilterRelease
             // 
             this.FilterRelease.AutoSize = true;
-            this.FilterRelease.Location = new System.Drawing.Point(406, 469);
-            this.FilterRelease.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.FilterRelease.Location = new System.Drawing.Point(304, 381);
+            this.FilterRelease.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.FilterRelease.Name = "FilterRelease";
-            this.FilterRelease.Size = new System.Drawing.Size(112, 21);
+            this.FilterRelease.Size = new System.Drawing.Size(109, 17);
             this.FilterRelease.TabIndex = 45;
-            this.FilterRelease.Text = "ReleaseDate";
+            this.FilterRelease.Text = "Newest Releases";
             this.FilterRelease.UseVisualStyleBackColor = true;
             this.FilterRelease.CheckedChanged += new System.EventHandler(this.FilterRelease_CheckedChanged);
             // 
             // YourReview
             // 
             this.YourReview.AutoSize = true;
-            this.YourReview.Location = new System.Drawing.Point(667, 437);
-            this.YourReview.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.YourReview.Location = new System.Drawing.Point(500, 355);
+            this.YourReview.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.YourReview.Name = "YourReview";
-            this.YourReview.Size = new System.Drawing.Size(145, 26);
+            this.YourReview.Size = new System.Drawing.Size(92, 17);
             this.YourReview.TabIndex = 46;
             this.YourReview.Text = "Your Reviews";
             this.YourReview.UseVisualStyleBackColor = true;
@@ -547,9 +519,9 @@
             // 
             // Client
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1551, 676);
+            this.ClientSize = new System.Drawing.Size(1163, 549);
             this.Controls.Add(this.YourReview);
             this.Controls.Add(this.FilterRelease);
             this.Controls.Add(this.label4);
@@ -595,7 +567,6 @@
             this.Controls.Add(this.GameDetails);
             this.Controls.Add(this.GameBox);
             this.Controls.Add(this.UserList);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "Client";
             this.Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)(this.RatingTrackBar)).EndInit();
