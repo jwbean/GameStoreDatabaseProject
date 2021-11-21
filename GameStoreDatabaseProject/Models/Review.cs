@@ -12,6 +12,6 @@ namespace GameStoreDatabaseProject.Models
         public string GameName { get; set; }
         public string Description { get; set; }
         public int FiveStarScore { get; set; }
-        public DateTimeOffset DateAdded { get; set; }
+        public DateTime DateAdded { get; set; }
     }
 }

@@ -12,8 +12,8 @@ namespace GameStoreDatabaseProject.Models
         public string UserName { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
-        public DateTimeOffset DateJoined { get; set; }
-        public DateTimeOffset LastActiveDate { get; set; }
+        public DateTime DateJoined { get; set; }
+        public DateTime LastActiveDate { get; set; }
         public bool IsRemoved { get; set; }
     }
     public class ActiveUser

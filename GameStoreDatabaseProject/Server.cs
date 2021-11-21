@@ -61,7 +61,7 @@ namespace GameStoreDatabaseProject
             bestDayOFSales = gameAccess.BestDayofSales();
             foreach (var item in bestDayOFSales)
             {
-                TopDay.Items.Add("Day: "+item.PurchasedDate + " Copies: "+item.GamesSold+" Sales: "+ item.TotalSales);
+                TopDay.Items.Add(item.PurchasedDate.ToShortDateString() + " Copies: "+item.GamesSold+" Sales: "+ item.TotalSales);
             }
             topSpenders = userAccess.TopSpender();
             foreach (var item in topSpenders)

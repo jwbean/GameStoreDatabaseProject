@@ -1,3 +1,4 @@
+USE CIS560;
 GO
 -- Here's a simple procedure fetching a single person, if the row exists.
 CREATE PROCEDURE dbo.RetrieveUser
@@ -35,6 +36,13 @@ SELECT *
 FROM dbo.Game G
 WHERE G.GenreName = @GenreName
 GO
+CREATE PROCEDURE dbo.RetrieveGamesGenreDeveloperFilter
+	@GenreName NVARCHAR(32), @DeveloperName NVARCHAR(32)
+AS
+SELECT *
+FROM dbo.Game G
+WHERE G.GenreName = @GenreName AND G.DeveloperName = @DeveloperName
+GO
 -- Here's a simple procedure fetching all games of type genre
 CREATE PROCEDURE dbo.RetrieveGamesDeveloperFilter
 	@DeveloperName NVARCHAR(32)
@@ -50,11 +58,62 @@ SELECT *
 FROM dbo.Game G
 WHERE G.Price < 5
 GO
+-- Here's a simple procedure fetching all games of type genre
+CREATE PROCEDURE dbo.RetrieveGamesLessThanFiveGenre
+	@GenreName NVARCHAR(32)
+AS
+SELECT *
+FROM dbo.Game G
+WHERE G.Price < 5 AND G.GenreName = @GenreName
+GO
+-- Here's a simple procedure fetching all games of type genre
+CREATE PROCEDURE dbo.RetrieveGamesLessThanFiveDeveloper
+	@DeveloperName NVARCHAR(32)
+AS
+SELECT *
+FROM dbo.Game G
+WHERE G.Price < 5 AND G.DeveloperName = @DeveloperName
+GO
+-- Here's a simple procedure fetching all games of type genre
+CREATE PROCEDURE dbo.RetrieveGamesLessThanFiveDeveloperGenre
+	@DeveloperName NVARCHAR(32), @GenreName NVARCHAR(32)
+AS
+SELECT *
+FROM dbo.Game G
+WHERE G.Price < 5 AND G.DeveloperName = @DeveloperName AND G.GenreName = @GenreName
+GO
 -- Here's a simple procedure fetching all games of high to low
 CREATE PROCEDURE dbo.RetrieveGamesHigh2Low
 AS
 SELECT *
 FROM dbo.Game G
+Order BY G.Price DESC
+GO
+-- Here's a simple procedure fetching all games of high to low
+CREATE PROCEDURE dbo.RetrieveGamesHigh2LowGenre
+	@GenreName NVARCHAR(32)
+AS
+SELECT *
+FROM dbo.Game G
+WHERE G.GenreName = @GenreName
+Order BY G.Price DESC
+GO
+-- Here's a simple procedure fetching all games of high to low
+CREATE PROCEDURE dbo.RetrieveGamesHigh2LowDeveloper
+	@DeveloperName NVARCHAR(32)
+AS
+SELECT *
+FROM dbo.Game G
+WHERE G.DeveloperName = @DeveloperName
+Order BY G.Price DESC
+GO
+-- Here's a simple procedure fetching all games of high to low
+CREATE PROCEDURE dbo.RetrieveGamesHigh2LowGenreDeveloper
+	@GenreName NVARCHAR(32), @DeveloperName NVARCHAR(32)
+AS
+SELECT *
+FROM dbo.Game G
+WHERE G.GenreName = @GenreName AND G.DeveloperName = @DeveloperName
 Order BY G.Price DESC
 GO
 -- Here's a simple procedure fetching all games of low to high
@@ -65,10 +124,64 @@ FROM dbo.Game G
 Order BY G.Price ASC
 GO
 -- Here's a simple procedure fetching all games of low to high
+CREATE PROCEDURE dbo.RetrieveGamesLow2HighGenre
+	@GenreName NVARCHAR(32)
+AS
+SELECT *
+FROM dbo.Game G
+WHERE G.GenreName = @GenreName
+Order BY G.Price ASC
+GO
+-- Here's a simple procedure fetching all games of low to high
+CREATE PROCEDURE dbo.RetrieveGamesLow2HighDeveloper
+	@DeveloperName NVARCHAR(32)
+AS
+SELECT *
+FROM dbo.Game G
+WHERE G.DeveloperName = @DeveloperName
+Order BY G.Price ASC
+GO
+-- Here's a simple procedure fetching all games of low to high
+CREATE PROCEDURE dbo.RetrieveGamesLow2HighGenreDeveloper
+	@GenreName NVARCHAR(32), @DeveloperName NVARCHAR(32)
+AS
+SELECT *
+FROM dbo.Game G
+WHERE G.GenreName = @GenreName AND G.DeveloperName = @DeveloperName
+Order BY G.Price ASC
+GO
+-- Here's a simple procedure fetching all games of low to high
 CREATE PROCEDURE dbo.RetrieveGamesReleaseDate
 AS
 SELECT *
 FROM dbo.Game G
+Order BY G.ReleaseDate DESC
+GO
+-- Here's a simple procedure fetching all games of low to high
+CREATE PROCEDURE dbo.RetrieveGamesReleaseDateGenre
+	@GenreName NVARCHAR(32)
+AS
+SELECT *
+FROM dbo.Game G
+WHERE G.GenreName = @GenreName
+Order BY G.ReleaseDate DESC
+GO
+-- Here's a simple procedure fetching all games of low to high
+CREATE PROCEDURE dbo.RetrieveGamesReleaseDateDeveloper
+	@DeveloperName NVARCHAR(32)
+AS
+SELECT *
+FROM dbo.Game G
+WHERE G.DeveloperName = @DeveloperName
+Order BY G.ReleaseDate DESC
+GO
+-- Here's a simple procedure fetching all games of low to high
+CREATE PROCEDURE dbo.RetrieveGamesReleaseDateGenreDeveloper
+	@GenreName NVARCHAR(32), @DeveloperName NVARCHAR(32)
+AS
+SELECT *
+FROM dbo.Game G
+WHERE G.GenreName = @GenreName AND G.DeveloperName = @DeveloperName
 Order BY G.ReleaseDate DESC
 GO
 -- Here's a simple procedure fetching a single person's library
@@ -137,8 +250,8 @@ FROM dbo.[User]
 GO
 -- Here's a simple procedure create a single game
 CREATE PROCEDURE dbo.CreateGame
-   @GameName NVARCHAR(32), @DeveloperName NVARCHAR(32), @GenreName NVARCHAR(32), @Price INT,
-   @ReleaseDate DATETIMEOFFSET, @IsRemoved INT
+   @GameName NVARCHAR(32), @DeveloperName NVARCHAR(32), @GenreName NVARCHAR(32), @Price DECIMAL(10,2),
+   @ReleaseDate DATE, @IsRemoved INT
 AS
 INSERT INTO dbo.Game(GameName,DeveloperName,GenreName,Price,ReleaseDate,IsRemoved)
 Values
@@ -147,7 +260,7 @@ GO
 -- Here's a simple procedure creating a single person
 CREATE PROCEDURE dbo.CreateUser
    @UserName NVARCHAR(32), @FirstName NVARCHAR(32), @LastName NVARCHAR(32),
-   @DateJoined DATETIMEOFFSET,@LastActiveDate DATETIMEOFFSET, @IsRemoved INT
+   @DateJoined DATE,@LastActiveDate DATE, @IsRemoved INT
 AS
 INSERT INTO dbo.[User](UserName,FirstName,LastName,DateJoined,LastActiveDate,IsRemoved)
 Values
@@ -155,7 +268,7 @@ Values
 GO
 -- Here's a simple procedure creating a single library entry
 CREATE PROCEDURE dbo.CreateLibrary
-   @UserId NVARCHAR(32), @GameName NVARCHAR(32), @PurchasedDate DATETIMEOFFSET
+   @UserId NVARCHAR(32), @GameName NVARCHAR(32), @PurchasedDate DATE
 AS
 INSERT INTO dbo.[Library](UserId,GameName,PurchasedDate)
 Values
@@ -164,7 +277,7 @@ GO
 -- Here's a simple procedure creating a single library entry
 CREATE PROCEDURE dbo.CreateReview
    @UserId Int, @GameName NVARCHAR(32), @Description NVARCHAR(150),
-   @FiveStarScore INT, @DateAdded DATETIMEOFFSET
+   @FiveStarScore INT, @DateAdded DATE
 AS
 INSERT INTO dbo.Review(UserId,GameName,[Description],FiveStarScore,DateAdded)
 Values
@@ -200,7 +313,7 @@ WHERE L.PurchasedDate <= DATEADD(MONTH, 1, G.ReleaseDate)
 GROUP BY G.GameName
 GO
 CREATE PROCEDURE dbo.ActiveUsers
- @FirstDate DATETIMEOFFSET, @LastDate DATETIMEOFFSET
+ @FirstDate DATE, @LastDate DATE
 AS
 SELECT COUNT(*) AS ActiveUsers
 FROM dbo.[USER] U
@@ -208,12 +321,11 @@ WHERE LastActiveDate BETWEEN @FirstDate AND @LastDate
 GO
 CREATE PROCEDURE dbo.BestDayOFSales
 AS
-SELECT Day(L.PurchasedDate) AS PurchasedDate, COUNT(L.PurchasedDate) AS GamesSold, SUM(G.Price) AS TotalSales, 
+SELECT L.PurchasedDate AS PurchasedDate, COUNT(L.PurchasedDate) AS GamesSold, SUM(G.Price) AS TotalSales, 
 RANK() OVER(ORDER BY SUM(G.Price) DESC) AS SalesRanking
 FROM dbo.Game G
 INNER JOIN Library L ON G.GameName = L.GameName
-WHERE MONTH(L.PurchasedDate) = MONTH(GETDATE())
-GROUP BY Day(L.PurchasedDate)
+GROUP BY L.PurchasedDate
 GO
 CREATE PROCEDURE dbo.EditUser
 	@Username NVARCHAR(32), @FirstName NVARCHAR(32),@LastName NVARCHAR(32)
@@ -225,15 +337,15 @@ SET
 WHERE UserName = @Username
 GO
 CREATE PROCEDURE dbo.EditGame
-	@GameName NVARCHAR(32), @Price INT
+	@GameName NVARCHAR(32), @Price DECIMAL(10,2)
 AS
 UPDATE dbo.Game
 SET
 	Price = @Price
 WHERE GameName = @GameName
 GO
-CREATE PROCEDURE dbo.UpdateActiveUser
-	@UserId INT, @LastActiveDate DATETIMEOFFSET
+CREATE PROCEDURE dbo.UpdateLastActive
+	@UserId INT, @LastActiveDate DATE
 AS
 UPDATE dbo.[User]
 SET

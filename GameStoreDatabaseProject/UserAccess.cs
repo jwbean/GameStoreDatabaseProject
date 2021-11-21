@@ -78,7 +78,7 @@ namespace GameStoreDatabaseProject
             using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(Connection.CnnVal("Database")))
             {
                 List<Models.User> user = new List<Models.User>();
-                user.Add(new Models.User { UserName = userName, LastName = lastName, FirstName = fristName, DateJoined = DateTimeOffset.Now, LastActiveDate = DateTimeOffset.Now,IsRemoved=true });
+                user.Add(new Models.User { UserName = userName, LastName = lastName, FirstName = fristName, DateJoined = DateTime.Now, LastActiveDate = DateTime.Now,IsRemoved=true });
                 connection.Execute("dbo.CreateUser @UserName, @FirstName, @LastName, @DateJoined, @LastActiveDate, @IsRemoved", user);
                 
             }
@@ -88,7 +88,7 @@ namespace GameStoreDatabaseProject
             using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(Connection.CnnVal("Database")))
             {
                 List<Models.Review> review = new List<Models.Review>();
-                review.Add(new Models.Review { UserId = userId, GameName = gameName, Description = description, FiveStarScore = score, DateAdded = DateTimeOffset.Now});
+                review.Add(new Models.Review { UserId = userId, GameName = gameName, Description = description, FiveStarScore = score, DateAdded = DateTime.Now});
                 connection.Execute("dbo.CreateReview @UserId, @GameName, @Description, @FiveStarScore, @DateAdded", review);
 
             }

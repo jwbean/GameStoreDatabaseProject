@@ -34,11 +34,43 @@ namespace GameStoreDatabaseProject
                 return output;
             }
         }
+        public List<Models.Game> GetGamesDeveloperGenre(string developerName, string genreName)
+        {
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(Connection.CnnVal("Database")))
+            {
+                var output = connection.Query<Models.Game>("dbo.RetrieveGamesGenreDeveloperFilter @GenreName, @DeveloperName", new { GenreName = genreName, DeveloperName = developerName }).ToList();
+                return output;
+            }
+        }
         public List<Models.Game> GetGamesCheep()
         {
             using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(Connection.CnnVal("Database")))
             {
                 var output = connection.Query<Models.Game>("dbo.RetrieveGamesLessThanFive").ToList();
+                return output;
+            }
+        }
+        public List<Models.Game> GetGamesCheepGenre(string genreName)
+        {
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(Connection.CnnVal("Database")))
+            {
+                var output = connection.Query<Models.Game>("dbo.RetrieveGamesLessThanFiveGenre @GenreName", new { GenreName = genreName }).ToList();
+                return output;
+            }
+        }
+        public List<Models.Game> GetGamesCheepDeveloper(string developerName)
+        {
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(Connection.CnnVal("Database")))
+            {
+                var output = connection.Query<Models.Game>("dbo.RetrieveGamesLessThanFiveDeveloper @DevleoperName", new { DevleoperName = developerName }).ToList();
+                return output;
+            }
+        }
+        public List<Models.Game> GetGamesCheepGenreDeveloper(string genreName, string developerName)
+        {
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(Connection.CnnVal("Database")))
+            {
+                var output = connection.Query<Models.Game>("dbo.RetrieveGamesLessThanFiveDeveloperGenre @DevleoperName, @GenreName", new { DevleoperName = developerName, GenreName = genreName }).ToList();
                 return output;
             }
         }
@@ -50,6 +82,30 @@ namespace GameStoreDatabaseProject
                 return output;
             }
         }
+        public List<Models.Game> GetGamesHigh2LowGenre(string genreName)
+        {
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(Connection.CnnVal("Database")))
+            {
+                var output = connection.Query<Models.Game>("dbo.RetrieveGamesHigh2LowGenre @GenreName", new { GenreName = genreName }).ToList();
+                return output;
+            }
+        }
+        public List<Models.Game> GetGamesHigh2LowDeveloper(string developerName)
+        {
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(Connection.CnnVal("Database")))
+            {
+                var output = connection.Query<Models.Game>("dbo.RetrieveGamesHigh2LowDeveloper @DeveloperName", new { DeveloperName = developerName }).ToList();
+                return output;
+            }
+        }
+        public List<Models.Game> GetGamesHigh2LowGenreDeveloper(string developerName, string genreName)
+        {
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(Connection.CnnVal("Database")))
+            {
+                var output = connection.Query<Models.Game>("dbo.RetrieveGamesHigh2LowGenreDeveloper @GenreName, @DeveloperName", new { GenreName = genreName, DeveloperName = developerName }).ToList();
+                return output;
+            }
+        }
         public List<Models.Game> GetGamesLow2High()
         {
             using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(Connection.CnnVal("Database")))
@@ -58,11 +114,59 @@ namespace GameStoreDatabaseProject
                 return output;
             }
         }
+        public List<Models.Game> GetGamesLow2HighGenre(string genreName)
+        {
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(Connection.CnnVal("Database")))
+            {
+                var output = connection.Query<Models.Game>("dbo.RetrieveGamesLow2HighGenre @GenreName", new { GenreName = genreName }).ToList();
+                return output;
+            }
+        }
+        public List<Models.Game> GetGamesLow2HighDeveloper(string developerName)
+        {
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(Connection.CnnVal("Database")))
+            {
+                var output = connection.Query<Models.Game>("dbo.RetrieveGamesLow2HighDeveloper @DeveloperName", new { DeveloperName = developerName }).ToList();
+                return output;
+            }
+        }
+        public List<Models.Game> GetGamesLow2HighDeveloperGenre(string developerName, string genreName)
+        {
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(Connection.CnnVal("Database")))
+            {
+                var output = connection.Query<Models.Game>("dbo.RetrieveGamesLow2HighGenreDeveloper @GenreName, @DeveloperName", new { GenreName = genreName, DeveloperName = developerName }).ToList();
+                return output;
+            }
+        }
         public List<Models.Game> GetGamesReleaseDate()
         {
             using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(Connection.CnnVal("Database")))
             {
                 var output = connection.Query<Models.Game>("dbo.RetrieveGamesReleaseDate").ToList();
+                return output;
+            }
+        }
+        public List<Models.Game> GetGamesReleaseDateGenre(string genreName)
+        {
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(Connection.CnnVal("Database")))
+            {
+                var output = connection.Query<Models.Game>("dbo.RetrieveGamesReleaseDateGenre @GenreName", new { GenreName = genreName }).ToList();
+                return output;
+            }
+        }
+        public List<Models.Game> GetGamesReleaseDateDeveloper(string developerName)
+        {
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(Connection.CnnVal("Database")))
+            {
+                var output = connection.Query<Models.Game>("dbo.RetrieveGamesReleaseDateDeveloper @DeveloperName", new { DeveloperName = developerName }).ToList();
+                return output;
+            }
+        }
+        public List<Models.Game> GetGamesReleaseDateGenreDeveloper(string genreName, string developerName)
+        {
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(Connection.CnnVal("Database")))
+            {
+                var output = connection.Query<Models.Game>("dbo.RetrieveGamesReleaseDateGenreDeveloper @GenreName, @DeveloperName", new { GenreName = genreName, DeveloperName = developerName }).ToList();
                 return output;
             }
         }
@@ -119,7 +223,7 @@ namespace GameStoreDatabaseProject
             using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(Connection.CnnVal("Database")))
             {
                 List<Models.Game> game = new List<Models.Game>();
-                game.Add(new Models.Game { GameName = gameName, DeveloperName = developerName, GenreName = genre, Price = price, ReleaseDate = DateTimeOffset.Now, IsRemoved = true });
+                game.Add(new Models.Game { GameName = gameName, DeveloperName = developerName, GenreName = genre, Price = price, ReleaseDate = DateTime.Now, IsRemoved = true });
                 connection.Execute("dbo.CreateGame @GameName, @DeveloperName, @GenreName, @Price, @ReleaseDate, @IsRemoved", game);
 
             }

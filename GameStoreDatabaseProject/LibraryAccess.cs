@@ -23,7 +23,7 @@ namespace GameStoreDatabaseProject
             using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(Connection.CnnVal("Database")))
             {
                 List<Models.Library> library = new List<Models.Library>();
-                library.Add(new Models.Library { UserId = userId, GameName = gameName, PurchasedDate = DateTimeOffset.Now});
+                library.Add(new Models.Library { UserId = userId, GameName = gameName, PurchasedDate = DateTime.Now});
                 connection.Execute("dbo.CreateLibrary @UserId, @GameName, @PurchasedDate", library);
             }
         }

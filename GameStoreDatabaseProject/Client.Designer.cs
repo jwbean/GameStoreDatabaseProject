@@ -73,6 +73,8 @@
             this.label4 = new System.Windows.Forms.Label();
             this.FilterRelease = new System.Windows.Forms.CheckBox();
             this.YourReview = new System.Windows.Forms.CheckBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.Filter_Button = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.RatingTrackBar)).BeginInit();
             this.SuspendLayout();
             // 
@@ -192,8 +194,9 @@
             this.Developer.Location = new System.Drawing.Point(302, 119);
             this.Developer.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.Developer.Name = "Developer";
-            this.Developer.Size = new System.Drawing.Size(0, 13);
+            this.Developer.Size = new System.Drawing.Size(54, 13);
             this.Developer.TabIndex = 14;
+            this.Developer.Text = "developer";
             // 
             // Genre
             // 
@@ -201,8 +204,9 @@
             this.Genre.Location = new System.Drawing.Point(283, 148);
             this.Genre.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.Genre.Name = "Genre";
-            this.Genre.Size = new System.Drawing.Size(0, 13);
+            this.Genre.Size = new System.Drawing.Size(34, 13);
             this.Genre.TabIndex = 15;
+            this.Genre.Text = "genre";
             // 
             // ReleaseDate
             // 
@@ -210,8 +214,9 @@
             this.ReleaseDate.Location = new System.Drawing.Point(312, 177);
             this.ReleaseDate.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.ReleaseDate.Name = "ReleaseDate";
-            this.ReleaseDate.Size = new System.Drawing.Size(0, 13);
+            this.ReleaseDate.Size = new System.Drawing.Size(28, 13);
             this.ReleaseDate.TabIndex = 16;
+            this.ReleaseDate.Text = "date";
             // 
             // Price
             // 
@@ -219,8 +224,9 @@
             this.Price.Location = new System.Drawing.Point(280, 208);
             this.Price.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.Price.Name = "Price";
-            this.Price.Size = new System.Drawing.Size(0, 13);
+            this.Price.Size = new System.Drawing.Size(30, 13);
             this.Price.TabIndex = 17;
+            this.Price.Text = "price";
             // 
             // label9
             // 
@@ -255,7 +261,7 @@
             this.Buy_Button.Location = new System.Drawing.Point(154, 420);
             this.Buy_Button.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Buy_Button.Name = "Buy_Button";
-            this.Buy_Button.Size = new System.Drawing.Size(56, 30);
+            this.Buy_Button.Size = new System.Drawing.Size(56, 19);
             this.Buy_Button.TabIndex = 21;
             this.Buy_Button.Text = "Buy";
             this.Buy_Button.UseVisualStyleBackColor = true;
@@ -268,7 +274,6 @@
             this.GenreBox.Name = "GenreBox";
             this.GenreBox.Size = new System.Drawing.Size(121, 21);
             this.GenreBox.TabIndex = 22;
-            this.GenreBox.SelectedIndexChanged += new System.EventHandler(this.GenreBox_SelectedIndexChanged);
             // 
             // label11
             // 
@@ -300,36 +305,36 @@
             // LessThanFive
             // 
             this.LessThanFive.AutoSize = true;
-            this.LessThanFive.Location = new System.Drawing.Point(304, 321);
+            this.LessThanFive.Location = new System.Drawing.Point(237, 320);
             this.LessThanFive.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.LessThanFive.Name = "LessThanFive";
-            this.LessThanFive.Size = new System.Drawing.Size(47, 17);
+            this.LessThanFive.Size = new System.Drawing.Size(38, 17);
             this.LessThanFive.TabIndex = 26;
-            this.LessThanFive.Text = "< $5";
+            this.LessThanFive.Text = "5<";
             this.LessThanFive.UseVisualStyleBackColor = true;
             this.LessThanFive.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
             // 
             // High2Low
             // 
             this.High2Low.AutoSize = true;
-            this.High2Low.Location = new System.Drawing.Point(304, 343);
+            this.High2Low.Location = new System.Drawing.Point(332, 320);
             this.High2Low.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.High2Low.Name = "High2Low";
-            this.High2Low.Size = new System.Drawing.Size(108, 17);
+            this.High2Low.Size = new System.Drawing.Size(81, 17);
             this.High2Low.TabIndex = 27;
-            this.High2Low.Text = "Price HighToLow";
+            this.High2Low.Text = "HighToLow";
             this.High2Low.UseVisualStyleBackColor = true;
             this.High2Low.CheckedChanged += new System.EventHandler(this.High2Low_CheckedChanged);
             // 
             // Low2High
             // 
             this.Low2High.AutoSize = true;
-            this.Low2High.Location = new System.Drawing.Point(304, 363);
+            this.Low2High.Location = new System.Drawing.Point(236, 340);
             this.Low2High.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Low2High.Name = "Low2High";
-            this.Low2High.Size = new System.Drawing.Size(108, 17);
+            this.Low2High.Size = new System.Drawing.Size(81, 17);
             this.Low2High.TabIndex = 28;
-            this.Low2High.Text = "Price LowToHigh";
+            this.Low2High.Text = "LowToHigh";
             this.Low2High.UseVisualStyleBackColor = true;
             this.Low2High.CheckedChanged += new System.EventHandler(this.Low2High_CheckedChanged);
             // 
@@ -349,20 +354,19 @@
             this.DeveloperList.Name = "DeveloperList";
             this.DeveloperList.Size = new System.Drawing.Size(121, 21);
             this.DeveloperList.TabIndex = 29;
-            this.DeveloperList.SelectedIndexChanged += new System.EventHandler(this.DeveloperList_SelectedIndexChanged);
             // 
             // GameNameSearch
             // 
-            this.GameNameSearch.Location = new System.Drawing.Point(304, 409);
+            this.GameNameSearch.Location = new System.Drawing.Point(304, 397);
             this.GameNameSearch.Multiline = true;
             this.GameNameSearch.Name = "GameNameSearch";
-            this.GameNameSearch.Size = new System.Drawing.Size(121, 20);
+            this.GameNameSearch.Size = new System.Drawing.Size(121, 19);
             this.GameNameSearch.TabIndex = 31;
             // 
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(234, 409);
+            this.label15.Location = new System.Drawing.Point(234, 397);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(38, 13);
             this.label15.TabIndex = 32;
@@ -370,10 +374,10 @@
             // 
             // Name_Search
             // 
-            this.Name_Search.Location = new System.Drawing.Point(304, 440);
+            this.Name_Search.Location = new System.Drawing.Point(369, 432);
             this.Name_Search.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name_Search.Name = "Name_Search";
-            this.Name_Search.Size = new System.Drawing.Size(56, 19);
+            this.Name_Search.Size = new System.Drawing.Size(56, 24);
             this.Name_Search.TabIndex = 33;
             this.Name_Search.Text = "Search";
             this.Name_Search.UseVisualStyleBackColor = true;
@@ -389,13 +393,13 @@
             // 
             // RatingTrackBar
             // 
-            this.RatingTrackBar.LargeChange = 1;
+            this.RatingTrackBar.LargeChange = 10;
             this.RatingTrackBar.Location = new System.Drawing.Point(785, 150);
-            this.RatingTrackBar.Maximum = 5;
+            this.RatingTrackBar.Maximum = 50;
             this.RatingTrackBar.Name = "RatingTrackBar";
             this.RatingTrackBar.Size = new System.Drawing.Size(104, 45);
             this.RatingTrackBar.TabIndex = 7;
-            this.RatingTrackBar.Value = 3;
+            this.RatingTrackBar.Value = 25;
             this.RatingTrackBar.Scroll += new System.EventHandler(this.RatingTrackBar_Scroll);
             // 
             // Review_Submit
@@ -415,9 +419,9 @@
             this.Recent.Location = new System.Drawing.Point(500, 335);
             this.Recent.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Recent.Name = "Recent";
-            this.Recent.Size = new System.Drawing.Size(87, 17);
+            this.Recent.Size = new System.Drawing.Size(61, 17);
             this.Recent.TabIndex = 37;
-            this.Recent.Text = "Most Recent";
+            this.Recent.Text = "Recent";
             this.Recent.UseVisualStyleBackColor = true;
             this.Recent.CheckedChanged += new System.EventHandler(this.Recent_CheckedChanged);
             // 
@@ -437,9 +441,9 @@
             this.HighScore.Location = new System.Drawing.Point(500, 294);
             this.HighScore.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.HighScore.Name = "HighScore";
-            this.HighScore.Size = new System.Drawing.Size(117, 17);
+            this.HighScore.Size = new System.Drawing.Size(81, 17);
             this.HighScore.TabIndex = 39;
-            this.HighScore.Text = "HighToLow Scores";
+            this.HighScore.Text = "HighToLow";
             this.HighScore.UseVisualStyleBackColor = true;
             this.HighScore.CheckedChanged += new System.EventHandler(this.HighScore_CheckedChanged);
             // 
@@ -449,9 +453,9 @@
             this.LowScore.Location = new System.Drawing.Point(500, 314);
             this.LowScore.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.LowScore.Name = "LowScore";
-            this.LowScore.Size = new System.Drawing.Size(117, 17);
+            this.LowScore.Size = new System.Drawing.Size(81, 17);
             this.LowScore.TabIndex = 40;
-            this.LowScore.Text = "LowToHigh Scores";
+            this.LowScore.Text = "LowToHigh";
             this.LowScore.UseVisualStyleBackColor = true;
             this.LowScore.CheckedChanged += new System.EventHandler(this.LowScore_CheckedChanged);
             // 
@@ -496,12 +500,12 @@
             // FilterRelease
             // 
             this.FilterRelease.AutoSize = true;
-            this.FilterRelease.Location = new System.Drawing.Point(304, 381);
+            this.FilterRelease.Location = new System.Drawing.Point(332, 340);
             this.FilterRelease.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.FilterRelease.Name = "FilterRelease";
-            this.FilterRelease.Size = new System.Drawing.Size(109, 17);
+            this.FilterRelease.Size = new System.Drawing.Size(88, 17);
             this.FilterRelease.TabIndex = 45;
-            this.FilterRelease.Text = "Newest Releases";
+            this.FilterRelease.Text = "ReleaseDate";
             this.FilterRelease.UseVisualStyleBackColor = true;
             this.FilterRelease.CheckedChanged += new System.EventHandler(this.FilterRelease_CheckedChanged);
             // 
@@ -517,11 +521,32 @@
             this.YourReview.UseVisualStyleBackColor = true;
             this.YourReview.CheckedChanged += new System.EventHandler(this.YourReview_CheckedChanged);
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(0, 0);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 47;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // Filter_Button
+            // 
+            this.Filter_Button.Location = new System.Drawing.Point(369, 362);
+            this.Filter_Button.Name = "Filter_Button";
+            this.Filter_Button.Size = new System.Drawing.Size(56, 23);
+            this.Filter_Button.TabIndex = 48;
+            this.Filter_Button.Text = "Search";
+            this.Filter_Button.UseVisualStyleBackColor = true;
+            this.Filter_Button.Click += new System.EventHandler(this.Filter_Button_Click);
+            // 
             // Client
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1163, 549);
+            this.ClientSize = new System.Drawing.Size(1155, 549);
+            this.Controls.Add(this.Filter_Button);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.YourReview);
             this.Controls.Add(this.FilterRelease);
             this.Controls.Add(this.label4);
@@ -622,6 +647,8 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.CheckBox FilterRelease;
         private System.Windows.Forms.CheckBox YourReview;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button Filter_Button;
     }
 }
 

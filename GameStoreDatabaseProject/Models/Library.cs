@@ -10,6 +10,6 @@ namespace GameStoreDatabaseProject.Models
     {
         public int UserId { get; set; }
         public string GameName { get; set; }
-        public DateTimeOffset PurchasedDate { get; set; }
+        public DateTime PurchasedDate { get; set; }
     }
 }

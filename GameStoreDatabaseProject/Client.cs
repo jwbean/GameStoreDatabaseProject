@@ -51,7 +51,7 @@ namespace GameStoreDatabaseProject
         private void RatingTrackBar_Scroll(object sender, System.EventArgs e)
         {
             // Display the trackbar value in the text box.
-            RatingScore.Text = "" + RatingTrackBar.Value;
+            RatingScore.Text = "" + ((double)RatingTrackBar.Value / 10);
         }
 
 
@@ -60,13 +60,13 @@ namespace GameStoreDatabaseProject
             Models.Game game = listOfGames[GameBox.SelectedIndex];
             Developer.Text = game.DeveloperName;
             Genre.Text = game.GenreName;
-            ReleaseDate.Text = (game.ReleaseDate).ToString();
+            ReleaseDate.Text = game.ReleaseDate.ToShortDateString();
             Price.Text = (game.Price).ToString();
             reviews = userAccess.GetReviews(game.GameName);
             ReviewBox.Items.Clear();
             foreach (var review in reviews)
             {
-                ReviewBox.Items.Add((review.FiveStarScore).ToString() + " Stars: "+review.Description);
+                ReviewBox.Items.Add((review.FiveStarScore).ToString() + ": "+review.Description);
             }
         }
 
@@ -95,114 +95,36 @@ namespace GameStoreDatabaseProject
             }
         }
 
-        private void GenreBox_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            GameBox.Items.Clear();
-            DeveloperList.SelectedItem = null;
-            High2Low.Checked = false;
-            Low2High.Checked = false;
-            LessThanFive.Checked = false;
-            FilterRelease.Checked = false;
-            listOfGames = gameAccess.GetGamesGenre(GenreBox.Text);
-            foreach (var game in listOfGames)
-            {
-                GameBox.Items.Add(game.GameName);
-            }
-        }
-
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
-            GameBox.Items.Clear();
-            GenreBox.SelectedItem = null;
-            DeveloperList.SelectedItem = null;
-            Low2High.Checked = false;
-            High2Low.Checked = false;
-            FilterRelease.Checked = false;
             if (LessThanFive.Checked)
             {
-               
-                listOfGames = gameAccess.GetGamesCheep();
-                foreach (var game in listOfGames)
-                {
-                    GameBox.Items.Add(game.GameName);
-                }
-            }
-            else
-            {
-                listOfGames = gameAccess.AllGames();
-                foreach (var game in listOfGames)
-                {
-                    GameBox.Items.Add(game.GameName);
-                }
+                Low2High.Checked = false;
+                High2Low.Checked = false;
+                FilterRelease.Checked = false;
             }
         }
 
         private void High2Low_CheckedChanged(object sender, EventArgs e)
         {
-            GameBox.Items.Clear();
-            GenreBox.SelectedItem = null;
-            DeveloperList.SelectedItem = null;
-            Low2High.Checked = false;
-            LessThanFive.Checked = false;
-            FilterRelease.Checked = false;
             if (High2Low.Checked)
             {
-                listOfGames = gameAccess.GetGamesHigh2Low();
-                foreach (var game in listOfGames)
-                {
-                    GameBox.Items.Add(game.GameName);
-                }
-            }
-            else
-            {
-                listOfGames = gameAccess.AllGames();
-                foreach (var game in listOfGames)
-                {
-                    GameBox.Items.Add(game.GameName);
-                }
+                Low2High.Checked = false;
+                LessThanFive.Checked = false;
+                FilterRelease.Checked = false;
             }
         }
 
         private void Low2High_CheckedChanged(object sender, EventArgs e)
         {
-            GameBox.Items.Clear();
-            GenreBox.SelectedItem = null;
-            DeveloperList.SelectedItem = null;
-            High2Low.Checked = false;
-            LessThanFive.Checked = false;
-            FilterRelease.Checked = false;
             if (Low2High.Checked)
             {
-                listOfGames = gameAccess.GetGamesLow2High();
-                foreach (var game in listOfGames)
-                {
-                    GameBox.Items.Add(game.GameName);
-                }
-            }
-            else
-            {
-                listOfGames = gameAccess.AllGames();
-                foreach (var game in listOfGames)
-                {
-                    GameBox.Items.Add(game.GameName);
-                }
+                High2Low.Checked = false;
+                LessThanFive.Checked = false;
+                FilterRelease.Checked = false;
             }
         }
 
-        private void DeveloperList_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            GameBox.Items.Clear();
-            GenreBox.SelectedItem = null;
-            High2Low.Checked = false;
-            Low2High.Checked = false;
-            LessThanFive.Checked = false;
-            FilterRelease.Checked = false;
-            listOfGames = gameAccess.GetGamesDeveloper(DeveloperList.Text);
-            foreach (var game in listOfGames)
-            {
-                GameBox.Items.Add(game.GameName);
-            }
-        }
 
         private void Name_Search_Click(object sender, EventArgs e)
         {
@@ -300,28 +222,11 @@ namespace GameStoreDatabaseProject
 
         private void FilterRelease_CheckedChanged(object sender, EventArgs e)
         {
-            GameBox.Items.Clear();
-            GenreBox.SelectedItem = null;
-            DeveloperList.SelectedItem = null;
-            Low2High.Checked = false;
-            High2Low.Checked = false;
-            LessThanFive.Checked = false;
             if (FilterRelease.Checked)
             {
-
-                listOfGames = gameAccess.GetGamesReleaseDate();
-                foreach (var game in listOfGames)
-                {
-                    GameBox.Items.Add(game.GameName);
-                }
-            }
-            else
-            {
-                listOfGames = gameAccess.AllGames();
-                foreach (var game in listOfGames)
-                {
-                    GameBox.Items.Add(game.GameName);
-                }
+                Low2High.Checked = false;
+                High2Low.Checked = false;
+                LessThanFive.Checked = false;
             }
         }
 
@@ -346,6 +251,108 @@ namespace GameStoreDatabaseProject
                         break;
                     }
                 }
+            }
+        }
+
+        private void Filter_Button_Click(object sender, EventArgs e)
+        {
+            GameBox.Items.Clear();
+            if(GenreBox.SelectedItem != null && DeveloperList.SelectedItem != null)
+            {
+                if (LessThanFive.Checked)
+                {
+                    listOfGames = gameAccess.GetGamesCheepGenreDeveloper(GenreBox.Text, DeveloperList.Text);
+                }
+                else if (High2Low.Checked)
+                {
+                    listOfGames = gameAccess.GetGamesHigh2LowGenreDeveloper(DeveloperList.Text,GenreBox.Text);
+                }
+                else if (Low2High.Checked)
+                {
+                    listOfGames = gameAccess.GetGamesLow2HighDeveloperGenre(DeveloperList.Text, GenreBox.Text);
+                }
+                else if (FilterRelease.Checked)
+                {
+                    listOfGames = gameAccess.GetGamesReleaseDateGenreDeveloper(GenreBox.Text, DeveloperList.Text);
+                }
+                else
+                {
+                    listOfGames = gameAccess.GetGamesDeveloperGenre(DeveloperList.Text, GenreBox.Text);
+                }
+                    
+            }
+            else if(GenreBox.SelectedItem != null && DeveloperList.SelectedItem == null)
+            {
+                if (LessThanFive.Checked)
+                {
+                    listOfGames = gameAccess.GetGamesCheepGenre(GenreBox.Text);
+                }
+                else if (High2Low.Checked)
+                {
+                    listOfGames = gameAccess.GetGamesHigh2LowGenre(GenreBox.Text);
+                }
+                else if (Low2High.Checked)
+                {
+                    listOfGames = gameAccess.GetGamesLow2HighGenre(GenreBox.Text);
+                }
+                else if (FilterRelease.Checked)
+                {
+                    listOfGames = gameAccess.GetGamesReleaseDateGenre(GenreBox.Text);
+                }
+                else
+                {
+                    listOfGames = gameAccess.GetGamesGenre(GenreBox.Text);
+                }
+            }
+            else if (GenreBox.SelectedItem == null && DeveloperList.SelectedItem != null)
+            {
+                if (LessThanFive.Checked)
+                {
+                    listOfGames = gameAccess.GetGamesCheepDeveloper(DeveloperList.Text);
+                }
+                else if (High2Low.Checked)
+                {
+                    listOfGames = gameAccess.GetGamesHigh2LowDeveloper(DeveloperList.Text);
+                }
+                else if (Low2High.Checked)
+                {
+                    listOfGames = gameAccess.GetGamesLow2HighDeveloper(DeveloperList.Text);
+                }
+                else if (FilterRelease.Checked)
+                {
+                    listOfGames = gameAccess.GetGamesReleaseDateDeveloper(DeveloperList.Text);
+                }
+                else
+                {
+                    listOfGames = gameAccess.GetGamesDeveloper(DeveloperList.Text);
+                }
+            }
+            else
+            {
+                if (LessThanFive.Checked)
+                {
+                    listOfGames = gameAccess.GetGamesCheep();
+                }
+                else if (High2Low.Checked)
+                {
+                    listOfGames = gameAccess.GetGamesHigh2Low();
+                }
+                else if (Low2High.Checked)
+                {
+                    listOfGames = gameAccess.GetGamesLow2High();
+                }
+                else if (FilterRelease.Checked)
+                {
+                    listOfGames = gameAccess.GetGamesReleaseDate();
+                }
+                else
+                {
+                    listOfGames = gameAccess.AllGames();
+                }
+            }
+            foreach (var game in listOfGames)
+            {
+                GameBox.Items.Add(game.GameName);
             }
         }
     }
