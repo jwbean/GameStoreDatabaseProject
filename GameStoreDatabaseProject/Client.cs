@@ -61,7 +61,7 @@ namespace GameStoreDatabaseProject
             Developer.Text = game.DeveloperName;
             Genre.Text = game.GenreName;
             ReleaseDate.Text = game.ReleaseDate.ToShortDateString();
-            Price.Text = (game.Price).ToString();
+            Price.Text = (game.Price).ToString("C2");
             reviews = userAccess.GetReviews(game.GameName);
             ReviewBox.Items.Clear();
             foreach (var review in reviews)

@@ -78,7 +78,7 @@ namespace GameStoreDatabaseProject
 
         private void Add_Game_Button_Click(object sender, EventArgs e)
         {
-            gameAccess.CreateGame(GameName.Text, Developer.Text, GenreName.Text, Int32.Parse(Price.Text));
+            gameAccess.CreateGame(GameName.Text, Developer.Text, GenreName.Text, Double.Parse(Price.Text));
         }
 
         private void Server_Load(object sender, EventArgs e)
@@ -94,7 +94,7 @@ namespace GameStoreDatabaseProject
 
         private void EditGame_Click(object sender, EventArgs e)
         {
-            gameAccess.EditGame(GameBox.Text, Int32.Parse(EditPrice.Text));
+            gameAccess.EditGame(GameBox.Text, Double.Parse(EditPrice.Text));
         }
 
         private void GameBox_SelectedIndexChanged(object sender, EventArgs e)

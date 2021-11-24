@@ -218,7 +218,7 @@ namespace GameStoreDatabaseProject
                 return output;
             }
         }
-        public void CreateGame(string gameName, string developerName, string genre, int price)
+        public void CreateGame(string gameName, string developerName, string genre, double price)
         {
             using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(Connection.CnnVal("Database")))
             {
@@ -228,7 +228,7 @@ namespace GameStoreDatabaseProject
 
             }
         }
-        public void EditGame(string gameName, int price)
+        public void EditGame(string gameName, double price)
         {
             using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(Connection.CnnVal("Database")))
             {
